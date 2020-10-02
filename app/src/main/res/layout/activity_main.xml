@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/headerTitle"
@@ -126,14 +127,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/submit" />
+                android:gravity="center"
+                android:text="@string/submit"
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
