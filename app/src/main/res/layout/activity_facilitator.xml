@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="20sp"
+    android:gravity="top"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mainClaimLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Enter MainClaim"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        style="@android:style/Widget.Material.Light.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="267dp"
+        android:layout_marginTop="20sp"
+        android:layout_weight="1"
+        android:ems="40"
+        android:gravity="center|top"
+        android:hint="Enter Mainclaim here"
+        android:inputType="textMultiLine"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_weight="1"
+        android:background="#1AC3B3"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Game Code Generated: XXXXX"
+        android:textColor="#1AC3B3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
