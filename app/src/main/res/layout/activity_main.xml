@@ -5,16 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@color/backgroundColor">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:background="@drawable/shadow4"
         android:elevation="50dp"
-        android:background="@drawable/shadow4">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/headerTitle"
@@ -48,10 +48,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
+                android:paddingTop="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:id="@+id/emailLabel"
@@ -60,7 +60,8 @@
                     android:fontFamily="@font/montserrat"
                     android:text="@string/emailLabel"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextTextEmailAddress"
@@ -78,10 +79,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
+                android:paddingTop="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:id="@+id/passwordLabel"
@@ -90,7 +91,8 @@
                     android:fontFamily="@font/montserrat"
                     android:text="@string/passwordLabel"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextTextPassword"
@@ -108,10 +110,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
+                android:paddingTop="12dp"
                 android:paddingRight="10dp"
-                android:paddingTop="12dp">
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:id="@+id/gameIDLabel"
@@ -120,7 +122,8 @@
                     android:fontFamily="@font/montserrat"
                     android:text="@string/gamIdLabel"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextTextPassword2"
@@ -139,8 +142,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
             android:orientation="vertical">
 
             <Button
@@ -150,10 +153,12 @@
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="100dp"
+                android:background="@color/backgroundColor"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center"
+                android:shadowColor="#000000"
                 android:text="@string/login"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/background_dark" />
 
             <Button
                 android:id="@+id/signupBtn"
@@ -163,6 +168,8 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="100dp"
                 android:layout_weight="1"
+                android:background="@color/backgroundColor"
+                android:shadowColor="#000000"
                 android:text="@string/signup" />
         </LinearLayout>
     </LinearLayout>
