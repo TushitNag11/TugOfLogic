@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@android:color/white">
+        android:elevation="50dp"
+        android:background="@drawable/shadow4">
 
         <TextView
             android:id="@+id/headerTitle"
@@ -24,8 +26,15 @@
             android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="186dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/logo" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -50,7 +59,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/emailLabel"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/editTextTextEmailAddress"
@@ -79,7 +89,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/passwordLabel"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/editTextTextPassword"
@@ -108,7 +119,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/gamIdLabel"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/editTextTextPassword2"
@@ -129,19 +141,29 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="100dp"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center"
-                android:text="@string/submit"
+                android:text="@string/login"
                 android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/signupBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="100dp"
+                android:layout_weight="1"
+                android:text="@string/signup" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

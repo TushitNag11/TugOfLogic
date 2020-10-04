@@ -5,5 +5,6 @@
     <string name="passwordLabel">Password:</string>
     <string name="gameIDLabel">"Game ID: "</string>
     <string name="gamIdLabel">"Game ID: "</string>
-    <string name="submit">Submit</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
 </resources>
