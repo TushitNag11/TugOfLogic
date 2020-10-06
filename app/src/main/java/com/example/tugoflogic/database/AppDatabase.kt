@@ -4,10 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.tugoflogic.model.User
+import com.example.tugoflogic.model.*
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(User::class), version = 1, exportSchema = false)
+@Database(
+    entities = arrayOf(
+        User::class,
+        Bout::class,
+        Facilitator::class,
+        Game::class,
+        MainClaim::class,
+        Player::class,
+        Rip::class,
+        Vote::class,
+        VoteType::class
+    ), version = 1, exportSchema = false
+)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun appDao(): AppDao
@@ -28,7 +40,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "tug_of_logic_database"
-                ).allowMainThreadQueries().build()
+                ).allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigrationOnDowngrade()
+                    .build()
                 INSTANCE = instance
                 return instance
             }

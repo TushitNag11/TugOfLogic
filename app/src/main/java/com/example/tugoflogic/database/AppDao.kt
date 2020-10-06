@@ -2,10 +2,7 @@ package com.example.tugoflogic.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.tugoflogic.model.Bout
-import com.example.tugoflogic.model.Facilitator
-import com.example.tugoflogic.model.Game
-import com.example.tugoflogic.model.User
+import com.example.tugoflogic.model.*
 
 @Dao
 interface AppDao {
@@ -20,6 +17,9 @@ interface AppDao {
     @Query("SELECT COUNT(*) FROM User")
     fun getUserCount(): Int
 
+    @Query("DELETE FROM User")
+    fun delAllUsers(): Int
+
     @Query("SELECT * FROM User")
     fun getAllUsers(): List<User>
 
@@ -33,6 +33,12 @@ interface AppDao {
     @Update
     fun updateBout(bout: Bout)
 
+    @Query("SELECT * FROM Bout")
+    fun getAllBouts(): List<Bout>
+
+    @Query("DELETE FROM Bout")
+    fun delAllBout(): Int
+
     //Facilitator table operations
     @Insert
     fun insertFacilitator(facilitator: Facilitator)
@@ -42,6 +48,12 @@ interface AppDao {
 
     @Update
     fun updateFacilitator(facilitator: Facilitator)
+
+    @Query("SELECT * FROM Facilitator")
+    fun getAllFacils(): List<Facilitator>
+
+    @Query("DELETE FROM Facilitator")
+    fun delAllFacils()
 
     //Game table ops
     @Insert
@@ -53,6 +65,90 @@ interface AppDao {
     @Update
     fun updateGame(game: Game)
 
+    @Query("SELECT * FROM Game")
+    fun getAllGame(): List<Game>
+
+    @Query("DELETE FROM Facilitator")
+    fun delAllGame()
+
     //Main Claim Table ops
+    @Insert
+    fun insertMainClaim(mainClaim: MainClaim)
+
+    @Delete
+    fun deleteMainClaim(mainClaim: MainClaim)
+
+    @Update
+    fun updateMainClaim(mainClaim: MainClaim)
+
+    @Query("SELECT * FROM MainClaim")
+    fun getAllMainClaim(): List<MainClaim>
+
+    @Query("DELETE FROM Facilitator")
+    fun delAllMainClaim()
+
+    //Player Table Ops
+    @Insert
+    fun insertPlayer(player: Player)
+
+    @Delete
+    fun deletePlayer(player: Player)
+
+    @Update
+    fun updatePlayer(player: Player)
+
+    @Query("SELECT * FROM Player")
+    fun getAllPlayer(): List<Player>
+
+    @Query("DELETE FROM Player")
+    fun delAllPlayer()
+
+    //Rip Table Ops
+    @Insert
+    fun insertRip(rip: Rip)
+
+    @Delete
+    fun deleteRip(rip: Rip)
+
+    @Update
+    fun updateRip(rip: Rip)
+
+    @Query("SELECT * FROM Rip")
+    fun getAllRip(): List<Rip>
+
+    @Query("DELETE FROM Rip")
+    fun delAllRip()
+
+    //Vote Table Ops
+    @Insert
+    fun insertVote(vote: Vote)
+
+    @Delete
+    fun deleteRip(vote: Vote)
+
+    @Update
+    fun updateRip(vote: Vote)
+
+    @Query("SELECT * FROM Vote")
+    fun getAllVote(): List<Vote>
+
+    @Query("DELETE FROM Vote")
+    fun delAllVote()
+
+    //VoteType Table Ops
+    @Insert
+    fun insertVoteType(voteType: VoteType)
+
+    @Delete
+    fun deleteVoteType(voteType: VoteType)
+
+    @Update
+    fun updateVoteType(voteType: VoteType)
+
+    @Query("SELECT * FROM VoteType")
+    fun getAllVoteType(): List<VoteType>
+
+    @Query("DELETE FROM VoteType")
+    fun delAllVoteType()
 
 }
