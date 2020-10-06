@@ -8,16 +8,18 @@ Instructor: Stephen Chiong
 ## Team Members
 
 Nam Phan: 300296406
-Tushit
+Tushit Nag Kanuri: 300298577
 Agam Choudhary: 300304145
-Karan
-
-## Run
-
-Open by Android Studio
+Gurkaran Singh: 300293305
 
 ## Structure
 
-- first
-- second
-- third
+- database (database connection & queries)
+- model (table model class)
+- controller (game controllers)
+- *Activity.java files (render UI)
+
+## Run
+
+- Open by Android Studio
+- Run on simulator

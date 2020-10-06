@@ -4,6 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.tugoflogic.model.*
 
+/**
+ *
+ * @author
+ * @version 1.0
+ * @since   2020-10-06
+ */
 @Dao
 interface AppDao {
 

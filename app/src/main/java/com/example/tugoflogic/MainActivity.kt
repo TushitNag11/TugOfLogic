@@ -7,19 +7,25 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 
+/**
+ *
+ * @author
+ * @version 1.0
+ * @since   2020-10-06
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val signupButton = findViewById<Button>(R.id.signupBtn)
-        signupButton.setOnClickListener{
+        signupButton.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
 
         val loginButton = findViewById<Button>(R.id.loginBtn)
-        loginButton.setOnClickListener{
+        loginButton.setOnClickListener {
 
             val intent = Intent(this, GameidActivity::class.java)
             startActivity(intent)

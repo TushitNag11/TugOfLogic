@@ -6,7 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.tugoflogic.model.*
 
-// Annotates class to be a Room Database with a table (entity) of the Word class
+/**
+ * Annotates class to be a Room Database with a table (entity) of the Word class
+ *
+ * @author
+ * @version 1.0
+ * @since   2020-10-06
+ */
 @Database(
     entities = arrayOf(
         User::class,

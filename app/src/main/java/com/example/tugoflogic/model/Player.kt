@@ -4,6 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 
+/**
+ *
+ * @author
+ * @version 1.0
+ * @since   2020-10-06
+ */
 @Entity(
     tableName = "Player", foreignKeys = arrayOf(
         ForeignKey(
