@@ -9,5 +9,5 @@
     <string name="signup">Sign Up</string>
     <string name="confirmPwd">Confirm Password</string>
     <string name="enter">Enter</string>
-    <string name="name">Name</string>
+    <string name="name">Name:</string>
 </resources>

@@ -136,7 +136,7 @@
                 android:gravity="center"
                 android:shadowColor="#000000"
                 android:text="@string/login"
-                android:textColor="@android:color/background_dark" />
+                android:textColor="@android:color/background_light" />
 
             <Button
                 android:id="@+id/signupBtn"
@@ -148,7 +148,8 @@
                 android:layout_weight="1"
                 android:background="@color/backgroundColor"
                 android:shadowColor="#000000"
-                android:text="@string/signup" />
+                android:text="@string/signup"
+                android:textColor="@android:color/background_light" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
