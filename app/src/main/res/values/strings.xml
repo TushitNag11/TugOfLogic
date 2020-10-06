@@ -10,4 +10,14 @@
     <string name="confirmPwd">Confirm Password</string>
     <string name="enter">Enter</string>
     <string name="name">Name:</string>
+    <string name="mainclaim">Main Claim</string>
+    <string name="agree">Agree</string>
+    <string name="disagree">Disagree</string>
+    <string name="Role">Role:</string>
+    <string name="submit">Submit</string>
+    <string-array name="spinnerItems">
+        <item>Fecilitator</item>
+        <item>Student</item>
+        <item>Others</item>
+    </string-array>
 </resources>

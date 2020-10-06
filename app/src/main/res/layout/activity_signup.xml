@@ -20,13 +20,15 @@
             android:id="@+id/headerTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center|center_horizontal"
             android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -147,7 +149,7 @@
                 android:paddingBottom="10dp">
 
                 <TextView
-                    android:id="@+id/gameIDLabel"
+                    android:id="@+id/roleLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
@@ -185,8 +187,11 @@
                 android:layout_marginRight="100dp"
                 android:layout_weight="1"
                 android:background="@color/backgroundColor"
+                android:fontFamily="@font/montserrat"
                 android:text="@string/signup"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

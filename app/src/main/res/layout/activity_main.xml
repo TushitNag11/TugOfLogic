@@ -20,13 +20,15 @@
             android:id="@+id/headerTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center_horizontal"
             android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -136,7 +138,9 @@
                 android:gravity="center"
                 android:shadowColor="#000000"
                 android:text="@string/login"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/signupBtn"
@@ -147,9 +151,12 @@
                 android:layout_marginRight="100dp"
                 android:layout_weight="1"
                 android:background="@color/backgroundColor"
+                android:fontFamily="@font/montserrat"
                 android:shadowColor="#000000"
                 android:text="@string/signup"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

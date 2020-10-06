@@ -8,7 +8,7 @@ import android.widget.ImageButton
 
 /**
  *
- * @author
+ * @author Tushit Nag Kanuri
  * @version 1.0
  * @since   2020-10-06
  */
@@ -23,6 +23,16 @@ class GameidActivity : AppCompatActivity() {
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+
+
+        val enterBtn = findViewById<Button>(R.id.enterBtn)
+
+        enterBtn.setOnClickListener {
+
+            val intent = Intent(this,MainClaimActivity::class.java)
+            startActivity(intent)
+
         }
     }
 }
