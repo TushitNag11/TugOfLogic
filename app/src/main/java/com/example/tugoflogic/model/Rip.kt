@@ -8,7 +8,7 @@ import com.example.tugoflogic.RipStatus
 
 /**
  *
- * @author
+ * @author  Agam
  * @version 1.0
  * @since   2020-10-06
  */
