@@ -12,9 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.signupBtn)
-        button.setOnClickListener{
-            val intent = Intent(this, signup::class.java)
+        val signupButton = findViewById<Button>(R.id.signupBtn)
+        signupButton.setOnClickListener{
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+        }
+
+        val loginButton = findViewById<Button>(R.id.loginBtn)
+        loginButton.setOnClickListener{
+
+            val intent = Intent(this, GameidActivity::class.java)
             startActivity(intent)
         }
 
