@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 
+/**
+ *
+ * @author
+ * @version 1.0
+ * @since   2020-10-06
+ */
 class GameidActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,9 +19,9 @@ class GameidActivity : AppCompatActivity() {
 
         val logoutBtn = findViewById<ImageButton>(R.id.logutBtn)
 
-        logoutBtn.setOnClickListener{
+        logoutBtn.setOnClickListener {
 
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

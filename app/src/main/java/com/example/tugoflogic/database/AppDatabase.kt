@@ -6,7 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.tugoflogic.model.*
 
-// Annotates class to be a Room Database with a table (entity) of the Word class
+/**
+ * Annotates class to be a Room Database with a table (entity)
+ *
+ * @author  Agam
+ * @version 1.0
+ * @since   2020-10-06
+ */
 @Database(
     entities = arrayOf(
         User::class,
@@ -16,8 +22,7 @@ import com.example.tugoflogic.model.*
         MainClaim::class,
         Player::class,
         Rip::class,
-        Vote::class,
-        VoteType::class
+        Vote::class
     ), version = 1, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -25,8 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun appDao(): AppDao
 
     companion object {
-        // Singleton prevents multiple instances of database opening at the
-        // same time.
+
         @Volatile
         private var INSTANCE: AppDatabase? = null
 

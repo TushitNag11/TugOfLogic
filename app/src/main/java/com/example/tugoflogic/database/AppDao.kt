@@ -4,6 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.tugoflogic.model.*
 
+/**
+ *
+ * @author  Agam
+ * @version 1.0
+ * @since   2020-10-06
+ */
 @Dao
 interface AppDao {
 
@@ -134,21 +140,5 @@ interface AppDao {
 
     @Query("DELETE FROM Vote")
     fun delAllVote()
-
-    //VoteType Table Ops
-    @Insert
-    fun insertVoteType(voteType: VoteType)
-
-    @Delete
-    fun deleteVoteType(voteType: VoteType)
-
-    @Update
-    fun updateVoteType(voteType: VoteType)
-
-    @Query("SELECT * FROM VoteType")
-    fun getAllVoteType(): List<VoteType>
-
-    @Query("DELETE FROM VoteType")
-    fun delAllVoteType()
 
 }

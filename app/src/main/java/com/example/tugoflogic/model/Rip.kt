@@ -6,6 +6,12 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.example.tugoflogic.RipStatus
 
+/**
+ *
+ * @author  Agam
+ * @version 1.0
+ * @since   2020-10-06
+ */
 @Entity(
     tableName = "Rip", foreignKeys = arrayOf(
         ForeignKey(
