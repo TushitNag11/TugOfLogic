@@ -15,6 +15,7 @@
     <string name="disagree">Disagree</string>
     <string name="Role">Role:</string>
     <string name="submit">Submit</string>
+    <string name="RIP">Reason In Play</string>
     <string-array name="spinnerItems">
         <item>Fecilitator</item>
         <item>Student</item>
