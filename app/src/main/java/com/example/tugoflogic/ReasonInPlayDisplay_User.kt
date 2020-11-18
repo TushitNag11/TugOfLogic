@@ -7,5 +7,6 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reason_in_play_display__user)
+
     }
 }
