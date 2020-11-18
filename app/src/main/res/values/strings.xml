@@ -18,6 +18,7 @@
     <string name="RIP">Reason In Play</string>
     <string name="refresh">Refresh</string>
     <string name="timer">Timer</string>
+    <string name="next">Next</string>
     <string-array name="spinnerItems">
         <item>Fecilitator</item>
         <item>Student</item>
