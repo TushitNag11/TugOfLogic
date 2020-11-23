@@ -22,6 +22,10 @@
     <string name="Results">Result</string>
     <string name="createGame">New Game</string>
     <string name="signout">Sign out</string>
+    <string name="MainClaimVoting">Main Claim Voting</string>
+    <string name="startVote">Start Vote</string>
+    <string name="Accept">Accept</string>
+    <string name="Decline">Decline</string>
     <string-array name="spinnerItems">
         <item>Fecilitator</item>
         <item>Student</item>

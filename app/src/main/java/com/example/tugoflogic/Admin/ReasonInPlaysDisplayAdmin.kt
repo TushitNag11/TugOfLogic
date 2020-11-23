@@ -1,12 +1,12 @@
-package com.example.tugoflogic.User
+package com.example.tugoflogic.Admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tugoflogic.R
 
-class finalResultsDisplay : AppCompatActivity() {
+class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mainclaim_final_results_display_user)
+        setContentView(R.layout.activity_reason_in_plays_display_admin)
     }
 }

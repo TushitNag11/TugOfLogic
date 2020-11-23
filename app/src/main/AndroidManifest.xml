@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.MCAdmin"></activity>
+        <activity android:name=".Admin.ReasonInPlaysDisplayAdmin"></activity>
+        <activity android:name=".Admin.MainClaimIntialVotingAdmin" />
+        <activity android:name=".Admin.MCAdmin" />
         <activity android:name=".Admin.AdminActivity" />
         <activity android:name=".User.finalResultsDisplay" />
         <activity android:name=".User.MainClaimFinalVotingDisplayUser" />
