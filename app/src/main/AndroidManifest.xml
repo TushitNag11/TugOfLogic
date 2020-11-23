@@ -9,13 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReasonInPlayDisplay_User"></activity>
-        <activity android:name=".ReasonInPlay_User" />
-        <activity android:name=".MainClaimActivity" />
+        <activity android:name=".Admin.MCAdmin"></activity>
+        <activity android:name=".Admin.AdminActivity" />
+        <activity android:name=".User.finalResultsDisplay" />
+        <activity android:name=".User.MainClaimFinalVotingDisplayUser" />
+        <activity android:name=".User.ReasonInPlayUserVotingDisplay" />
+        <activity android:name=".User.ReasonInPlayDisplay_User" />
+        <activity android:name=".User.ReasonInPlay_User" />
+        <activity android:name=".User.MainClaimActivity" />
         <activity android:name=".MainActivity2" />
-        <activity android:name=".GameidActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".User.GameidActivity" />
+        <activity android:name=".User.SignupActivity" />
+        <activity android:name=".User.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

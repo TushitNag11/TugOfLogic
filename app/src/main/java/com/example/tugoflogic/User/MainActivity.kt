@@ -1,4 +1,4 @@
-package com.example.tugoflogic
+package com.example.tugoflogic.User
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.example.tugoflogic.R
 
 /**
  *

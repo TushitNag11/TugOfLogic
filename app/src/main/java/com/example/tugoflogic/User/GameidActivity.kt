@@ -1,4 +1,4 @@
-package com.example.tugoflogic
+package com.example.tugoflogic.User
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toolbar
-import androidx.core.content.ContextCompat
+import com.example.tugoflogic.R
 
 /**
  *
@@ -27,7 +25,7 @@ class GameidActivity : AppCompatActivity() {
 
         enterBtn.setOnClickListener {
 
-            val intent = Intent(this,MainClaimActivity::class.java)
+            val intent = Intent(this, MainClaimActivity::class.java)
             startActivity(intent)
 
         }

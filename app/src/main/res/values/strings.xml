@@ -19,6 +19,9 @@
     <string name="refresh">Refresh</string>
     <string name="timer">Timer</string>
     <string name="next">Next</string>
+    <string name="Results">Result</string>
+    <string name="createGame">New Game</string>
+    <string name="signout">Sign out</string>
     <string-array name="spinnerItems">
         <item>Fecilitator</item>
         <item>Student</item>

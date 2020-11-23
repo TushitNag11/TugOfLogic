@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
     android:orientation="vertical"
-    tools:context=".User.ReasonInPlay_User">
+    tools:context=".Admin.MCAdmin">
 
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/ripLabel"
+            android:id="@+id/mcLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -25,13 +25,13 @@
             android:layout_marginRight="40dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="@string/RIP"
+            android:text="@string/mainclaim"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="36sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/ripEditText"
+            android:id="@+id/mcEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="50dp"
@@ -42,23 +42,39 @@
             android:background="@drawable/edittextbackground"
             android:ems="10"
             android:gravity="start|top"
+            android:hint="Enter Main Claim"
             android:inputType="textMultiLine"
             android:maxLines="10"
             android:minLines="5" />
 
         <Button
-            android:id="@+id/ripSubmitBtn"
-            android:layout_width="match_parent"
+            android:id="@+id/mcSubmitBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="280dp"
+            android:layout_marginLeft="280dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
             android:layout_marginBottom="50dp"
             android:background="@color/backgroundColor"
             android:fontFamily="@font/montserrat"
             android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/mcSubmitBtn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="60dp"
+            android:background="@color/backgroundColor"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/next"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />

@@ -1,9 +1,10 @@
-package com.example.tugoflogic
+package com.example.tugoflogic.User
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.tugoflogic.R
 
 class ReasonInPlay_User : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

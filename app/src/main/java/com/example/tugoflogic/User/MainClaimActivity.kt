@@ -1,12 +1,10 @@
-package com.example.tugoflogic
+package com.example.tugoflogic.User
 
 import android.content.Intent
-import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import kotlinx.android.synthetic.main.activity_main_claim.*
+import com.example.tugoflogic.R
 
 /**
  *

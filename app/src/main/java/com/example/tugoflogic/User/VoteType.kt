@@ -1,4 +1,4 @@
-package com.example.tugoflogic
+package com.example.tugoflogic.User
 
 /**
  *

@@ -1,7 +1,8 @@
-package com.example.tugoflogic
+package com.example.tugoflogic.User
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tugoflogic.R
 
 /**
  *

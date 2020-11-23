@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="vertical"
+    tools:context=".Admin.AdminActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shadow4"
+        android:elevation="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center_horizontal"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="186dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/createGame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="100dp"
+                android:background="@color/backgroundColor"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:shadowColor="#000000"
+                android:text="@string/createGame"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/signoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="100dp"
+                android:layout_weight="1"
+                android:background="@color/backgroundColor"
+                android:fontFamily="@font/montserrat"
+                android:shadowColor="#000000"
+                android:text="@string/signout"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
