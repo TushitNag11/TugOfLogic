@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.RIPDebateSelectionAdmin"></activity>
+        <activity android:name=".Admin.ripVotingResultsAdmin"></activity>
+        <activity android:name=".Admin.RIPDebateSelectionAdmin" />
         <activity android:name=".Admin.ReasonInPlaysDisplayAdmin" />
         <activity android:name=".Admin.MainClaimIntialVotingAdmin" />
         <activity android:name=".Admin.MCAdmin" />

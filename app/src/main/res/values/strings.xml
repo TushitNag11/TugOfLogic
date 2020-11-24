@@ -28,6 +28,7 @@
     <string name="Decline">Decline</string>
     <string name="StartDebate">Start Debate</string>
     <string name="ripDebate">Reason In Play Debate</string>
+    <string name="ripresults">Reason In Play Results</string>
     <string-array name="spinnerItems">
         <item>Fecilitator</item>
         <item>Student</item>

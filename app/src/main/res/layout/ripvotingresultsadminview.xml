@@ -23,28 +23,30 @@
             android:textSize="12sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/acceptBtn"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@color/green"
             android:fontFamily="@font/montserrat"
-            android:text="@string/Accept"
+            android:text="TextView"
+            android:textColor="@color/green"
             android:textSize="12sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/declineBtn"
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@color/backgroundColor"
             android:fontFamily="@font/montserrat"
-            android:text="@string/Decline"
+            android:text="TextView"
+            android:textColor="@color/backgroundColor"
+            android:textSize="12sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <View
