@@ -26,6 +26,8 @@
     <string name="startVote">Start Vote</string>
     <string name="Accept">Accept</string>
     <string name="Decline">Decline</string>
+    <string name="StartDebate">Start Debate</string>
+    <string name="ripDebate">Reason In Play Debate</string>
     <string-array name="spinnerItems">
         <item>Fecilitator</item>
         <item>Student</item>
