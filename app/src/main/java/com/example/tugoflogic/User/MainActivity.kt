@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.example.tugoflogic.R
+import com.example.tugoflogic.Service.UserService
 
 /**
  *
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var userService = UserService();
+        userService.findAll("http://54.225.179.78:5000/users", this);
 
     }
 
