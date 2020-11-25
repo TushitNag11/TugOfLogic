@@ -1,9 +1,9 @@
 package com.example.tugoflogic.models
 
 
-public class game(
+public class Player(
     var _id: Int,
-    var date_time: Int
+    var game_id: Int
 ) {
 
 

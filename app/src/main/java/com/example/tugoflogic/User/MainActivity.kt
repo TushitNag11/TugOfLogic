@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.example.tugoflogic.R
-import com.example.tugoflogic.Service.UserService
+import com.example.tugoflogic.Service.*
 
 /**
  *
@@ -35,6 +35,25 @@ class MainActivity : AppCompatActivity() {
 
         var userService = UserService();
         userService.findAll("http://54.225.179.78:5000/users", this);
+
+
+        var gameService = GameService();
+        gameService.findAll("http://54.225.179.78:5000/games", this);
+
+        var mainClaimService = MainClaimService();
+        mainClaimService.findAll("http://54.225.179.78:5000/mainclaims", this);
+
+        var playerService = PlayerService();
+        playerService.findAll("http://54.225.179.78:5000/players", this);
+
+        var ripService = RipService();
+        ripService.findAll("http://54.225.179.78:5000/rips", this);
+
+        var teacherService = TeacherService();
+        teacherService.findAll("http://54.225.179.78:5000/teachers", this);
+
+        var voteService = VoteService();
+        voteService.findAll("http://54.225.179.78:5000/votes", this);
 
     }
 

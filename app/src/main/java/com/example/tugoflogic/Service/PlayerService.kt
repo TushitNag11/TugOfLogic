@@ -2,15 +2,15 @@ package com.example.tugoflogic.Service
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.example.tugoflogic.models.User
+import com.example.tugoflogic.models.Player
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
 
-class UserService {
+class PlayerService {
     private val client = OkHttpClient()
 
-    val listLiveData = MutableLiveData<List<User>>()
+    val listLiveData = MutableLiveData<List<Player>>()
 
     @Throws(IOException::class)
     fun findAll(url: String?, context: Context) {
@@ -24,7 +24,7 @@ class UserService {
                     var jsonText = response.body()!!.string();
                     println("====" + jsonText)
 
-                    var list: List<User> = Helper.fromJson(jsonText);
+                    var list: List<Player> = Helper.fromJson(jsonText);
                     println("====datalist===" + list.size)
                     for (item in list) {
                         println(item.toString())
