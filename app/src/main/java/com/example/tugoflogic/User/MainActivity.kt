@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var userService = UserService();
         val s: String? = GetUrl(this)
-        userService.findAll(s + "users", this);
+        var userService = UserService();
+        userService.findAll("users", this);
 
 
 //        var gameService = GameService();
