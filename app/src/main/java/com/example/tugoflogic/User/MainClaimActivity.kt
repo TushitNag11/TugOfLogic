@@ -13,9 +13,15 @@ import com.example.tugoflogic.R
  * @since   2020-10-06
  */
 class MainClaimActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_claim)
+
+        val gameId = intent.getStringExtra("gameId")
+        println("GAME ID2: " + gameId)
+
 
         val submitBtn = findViewById<Button>(R.id.submitBtn)
         submitBtn.setOnClickListener {
