@@ -3,22 +3,29 @@ package com.example.tugoflogic.Service
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.example.tugoflogic.models.Game
-import com.example.tugoflogic.models.User
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import java.io.IOException
 
-class GameService {
-    private val client = OkHttpClient()
 
-    val listLiveData = MutableLiveData<List<Game>>()
+class GameService(context: Context) {
+    private val client = OkHttpClient()
+    private var context: Context;
+    var listLiveData = MutableLiveData<List<Game>>()
+    var newGameLiveData = MutableLiveData<Int>();
+
+    init {
+        this.context = context;
+    }
 
     @Throws(IOException::class)
-    fun findAll(url: String?, context: Context) {
+    fun findAll() {
         Thread {
             println("============= call api")
             val request: Request = Request.Builder()
-                .url(url)
+                .url(Helper.GetUrl(this.context) + "games")
                 .build()
             client.newCall(request).execute().use { response ->
                 try {
@@ -37,6 +44,37 @@ class GameService {
 
             }
         }.start()
+    }
 
+    @Throws(IOException::class)
+    fun create(id: Int) {
+        Thread {
+            println("============= new game")
+            val json = Game.toNewObject(id);
+
+            val body: RequestBody = RequestBody.create(
+                MediaType.parse("application/json"), json
+            )
+
+            val request: Request = Request.Builder()
+                .url(Helper.GetUrl(this.context) + "games")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                try {
+                    var jsonText = response.body()!!.string();
+                    println(jsonText);
+                    if (jsonText.equals("inserted")) {
+                        this.newGameLiveData.postValue(id);
+
+                    }
+
+                } catch (e: Exception) {
+
+                }
+            }
+
+        }.start()
     }
 }
