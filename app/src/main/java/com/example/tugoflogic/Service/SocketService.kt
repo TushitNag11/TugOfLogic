@@ -40,7 +40,7 @@ class SocketService(context: Context) {
         })
     }
 
-    fun sendMessage(message: ESocket) {
-        mSocket.emit("messages", message.value);
+    fun sendMessage(message: String) {
+        mSocket.emit("messages", message);
     }
 }

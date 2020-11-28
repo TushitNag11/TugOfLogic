@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        socketService.sendMessage(ESocket.SHOW_MAINCLAIM);
+//        socketService.sendMessage(ESocket.SHOW_MAINCLAIM);
 
     }
 

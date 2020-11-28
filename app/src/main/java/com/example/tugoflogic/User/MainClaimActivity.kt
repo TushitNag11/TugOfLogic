@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
+import com.example.tugoflogic.Service.MainClaimService
 import com.example.tugoflogic.Service.SocketService
+import kotlinx.android.synthetic.main.activity_main_claim.*
 
 /**
  *
@@ -36,6 +38,8 @@ class MainClaimActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var mainClaimService = MainClaimService(this)
+
 
         // ws listening
         var socketService = SocketService(this);
@@ -47,6 +51,20 @@ class MainClaimActivity : AppCompatActivity() {
                     it,
                     Toast.LENGTH_SHORT
                 ).show();
+
+                val mainclaimId = it;
+
+                mainClaimService.findAll();
+                // get new mainclaim and display
+
+                mainClaimService.listLiveData.observe(this, Observer { ms ->
+                    ms?.let {
+                        var found = it.find { x -> x._id === mainclaimId.toInt() }
+                        if (found != null) {
+                            mainclaimDisplay.setText(found.statement.toString());
+                        }
+                    }
+                })
             }
         })
 

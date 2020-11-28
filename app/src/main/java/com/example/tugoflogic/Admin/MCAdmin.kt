@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.MainClaimService
+import com.example.tugoflogic.Service.SocketService
+import com.example.tugoflogic.models.ESocket
 import kotlinx.android.synthetic.main.activity_m_c_admin.*
 import kotlinx.android.synthetic.main.activity_main_claim.*
 
@@ -40,7 +42,7 @@ class MCAdmin : AppCompatActivity() {
 
 
                 if (mainClaimStatement != "") {
-                    mainClaimService.create(mainClaimID, 1, mainClaimStatement)
+                    mainClaimService.create(mainClaimID, gameID, mainClaimStatement)
 
                 } else {
                     Toast.makeText(
@@ -50,15 +52,21 @@ class MCAdmin : AppCompatActivity() {
                     ).show()
                 }
 
-
-
-
-
                 println(mainClaimID.toString());
 
             })
         })
 
-
+        mainClaimService.newMainClaimData.observe(this, Observer { ms ->
+            ms?.let {
+                if (it > 0) {
+                    println("New Mainclaim: " + it);
+                    // new mainclaim is created
+                    // call ws to broadcast to users
+                    var socketService = SocketService(this);
+                    socketService.sendMessage(ESocket.SHOW_MAINCLAIM.value + "|" + it)
+                }
+            }
+        })
     }
 }
