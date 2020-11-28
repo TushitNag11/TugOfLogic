@@ -17,8 +17,14 @@
         <activity android:name=".Admin.RIPDebateSelectionAdmin" />
         <activity android:name=".Admin.ReasonInPlaysDisplayAdmin" />
         <activity android:name=".Admin.MainClaimIntialVotingAdmin" />
-        <activity android:name=".Admin.MCAdmin" />
+        <activity android:name=".Admin.MCAdmin" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
         <activity android:name=".Admin.AdminActivity">
 
         </activity>
@@ -30,13 +36,8 @@
         <activity android:name=".User.MainClaimActivity" />
         <activity android:name=".User.GameidActivity" />
         <activity android:name=".User.SignupActivity" />
-        <activity android:name=".User.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".User.MainActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
     </application>
 
