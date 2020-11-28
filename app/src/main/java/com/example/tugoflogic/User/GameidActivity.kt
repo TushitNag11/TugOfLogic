@@ -1,6 +1,7 @@
 package com.example.tugoflogic.User
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -41,10 +42,18 @@ class GameidActivity : AppCompatActivity() {
                             it._id.toString().equals(gameId)
                         }
 
+
                         if (found != null) {
+
+                                val sharedPref: SharedPreferences =
+                                    this.getSharedPreferences("com.example.tugoflogic.User", 0)
+                                val editor = sharedPref.edit()
+                                editor.putInt("GAME_ID", gameId.toInt())
+                                editor.apply()
+                                println("GameID==========" + sharedPref.getInt("GAME_ID", 0))
+                                // move to mainclain screen
+
                             val intent = Intent(this, MainClaimActivity::class.java)
-                            println("GAME ID: " + gameId)
-                            intent.putExtra("gameId", gameId)
                             startActivity(intent)
                         } else {
                             Toast.makeText(
