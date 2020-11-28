@@ -106,6 +106,19 @@ class MainActivity : AppCompatActivity() {
 //        var voteService = VoteService();
 //        voteService.findAll("http://54.225.179.78:5000/votes", this);
 
+        var socketService = SocketService(this);
+
+        socketService.message.observe(this, Observer { ms ->
+            ms?.let {
+                Toast.makeText(
+                    this,
+                    it,
+                    Toast.LENGTH_SHORT
+                ).show();
+            }
+        })
+
+
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
