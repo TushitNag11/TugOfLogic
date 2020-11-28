@@ -5,7 +5,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
+import com.example.tugoflogic.Service.SocketService
 
 /**
  *
@@ -33,5 +36,19 @@ class MainClaimActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-           }
+
+        // ws listening
+        var socketService = SocketService(this);
+        socketService.message.observe(this, Observer { ms ->
+            ms?.let {
+                // test
+                Toast.makeText(
+                    this,
+                    it,
+                    Toast.LENGTH_SHORT
+                ).show();
+            }
+        })
+
+    }
 }

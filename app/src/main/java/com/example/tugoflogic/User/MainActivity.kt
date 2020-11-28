@@ -12,6 +12,7 @@ import com.example.tugoflogic.Admin.AdminActivity
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.*
 import com.example.tugoflogic.Service.Helper.Companion.GetUrl
+import com.example.tugoflogic.models.ESocket
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStream
 
@@ -118,6 +119,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        socketService.sendMessage(ESocket.SHOW_MAINCLAIM);
 
     }
 

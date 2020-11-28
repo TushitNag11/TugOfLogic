@@ -3,6 +3,7 @@ package com.example.tugoflogic.Service
 import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
+import com.example.tugoflogic.models.ESocket
 import com.github.nkzawa.emitter.Emitter
 import com.github.nkzawa.socketio.client.IO
 import com.github.nkzawa.socketio.client.Socket
@@ -33,9 +34,13 @@ class SocketService(context: Context) {
 
         mSocket.on("notifications", Emitter.Listener {
             val message = it[0] as String
-            println(message);
+            println("WS: " + message);
             this.message.postValue(message)
 
         })
+    }
+
+    fun sendMessage(message: ESocket) {
+        mSocket.emit("messages", message.value);
     }
 }
