@@ -32,7 +32,7 @@ class MCAdmin : AppCompatActivity() {
 
                 var mainClaimID = it.size + 1
                 //checking whether main claim is empty or not
-                if()
+//                if()
 
                 var mainClaimStatement = tvMainClaim.getText().toString()
 
