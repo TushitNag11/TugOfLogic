@@ -2,9 +2,12 @@ package com.example.tugoflogic.Service
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
+import com.example.tugoflogic.models.MainClaim
 import com.example.tugoflogic.models.Vote
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import java.io.IOException
 
 class VoteService(context: Context) {
@@ -61,6 +64,39 @@ class VoteService(context: Context) {
                 }
 
             }
+        }.start()
+    }
+
+    @Throws(IOException::class)
+    fun create(id: Int, gameid: Int, voteTypeId: Int,voteFlag: Boolean, statementId: Int ) {
+        Thread {
+            println("============= new VOTE")
+            val json = Vote.toNewObject(id,gameid, voteTypeId, voteFlag, statementId );
+
+            println(json)
+            val body: RequestBody = RequestBody.create(
+                MediaType.parse("application/json"), json
+            )
+
+            val request: Request = Request.Builder()
+                .url(Helper.GetUrl(this.context) + "vote")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                try {
+                    var jsonText = response.body()!!.string();
+                    println(jsonText);
+                    if (jsonText.equals("inserted")) {
+                        this.voteResult.postValue(id.toString());
+
+                    }
+
+                } catch (e: Exception) {
+
+                }
+            }
+
         }.start()
     }
 }

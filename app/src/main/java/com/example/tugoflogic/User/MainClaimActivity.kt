@@ -6,7 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.MainClaimService
@@ -27,11 +31,11 @@ class MainClaimActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_claim)
 
-        var mainclaimId = "";
+        var mainclaimId = ""
 
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
-        val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt();
+        val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
 
         println("MC gameId: " + gameID)
 
@@ -49,47 +53,68 @@ class MainClaimActivity : AppCompatActivity() {
 
 
         // ws listening
-        var socketService = SocketService(this);
+        var socketService = SocketService(this)
         socketService.message.observe(this, Observer { ms ->
             ms?.let {
-                var message = it.split('|')[0];
-                var id = it.split('|')[1];
+                var message = it.split('|')[0]
+                var id = it.split('|')[1]
 
                 Toast.makeText(
                     this,
                     it,
                     Toast.LENGTH_SHORT
-                ).show();
+                ).show()
 
-                println(it);
+                println(it)
 
                 // new main claim
                 if (ESocket.SHOW_MAINCLAIM.value.equals(message)) {
                     // test
 
 
-                    mainclaimId = id;
+                    mainclaimId = id
 
-                    mainClaimService.findAll();
+                    mainClaimService.findAll()
                 }
 
                 // vote
                 if (ESocket.VOTE_MAINCLAIM1.value.equals(message)) {
-                    println("Start Vote:" + id);
-                }
-
-
+                    println("Start Vote:" + id)
+                    radioGroup.visibility = View.VISIBLE
+                    submitBtn.visibility = View.VISIBLE
             }
-        })
+
+
+                radioGroup.setOnCheckedChangeListener(
+                    RadioGroup.OnCheckedChangeListener { group, checkedId ->
+                        val radio: RadioButton = findViewById(checkedId)
+                        if(radio.isChecked)
+                        {
+                            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value)
+                            Toast.makeText(applicationContext," On checked change :"+
+                                    " ${radio.text}",
+                                Toast.LENGTH_SHORT).show()
+                        }
+                        else
+                        {
+                            Toast.makeText(this,"Please Vote", LENGTH_LONG)
+                                .show()
+                        }
+                    })
+
+
+        }
 
         mainClaimService.listLiveData.observe(this, Observer { ms ->
             ms?.let {
                 var found = it.find { x -> x._id.equals(mainclaimId) }
                 if (found != null) {
-                    mainclaimDisplay.setText(found.statement.toString());
+                    mainclaimDisplay.setText(found.statement.toString())
                 }
             }
         })
 
+    })
     }
+
 }
