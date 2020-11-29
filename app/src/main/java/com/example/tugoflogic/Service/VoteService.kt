@@ -14,7 +14,7 @@ class VoteService(context: Context) {
     var context: Context;
     val listLiveData = MutableLiveData<List<Vote>>()
     val voteResult = MutableLiveData<String>()
-
+    var newVote = MutableLiveData<Int>();
     init {
         this.context = context;
     }
@@ -87,7 +87,7 @@ class VoteService(context: Context) {
                     var jsonText = response.body()!!.string();
                     println(jsonText);
                     if (jsonText.equals("inserted")) {
-                        this.voteResult.postValue(id.toString());
+                        this.newVote.postValue(id.toInt());
 
                     }
 

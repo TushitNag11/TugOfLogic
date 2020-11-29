@@ -100,47 +100,52 @@ class MainClaimActivity : AppCompatActivity() {
             })
 
         })
+        radioGroup.setOnCheckedChangeListener(
+            RadioGroup.OnCheckedChangeListener { group, checkedId ->
+                val radio: RadioButton = findViewById(checkedId)
+                if (radio.isChecked) {
+
+                    if (radio.text.equals("Agree")) {
+                        voteFlag = 1
+                    } else {
+                        voteFlag = 0
+                    }
 
 
+                } else {
+                    Toast.makeText(this, "Please Vote", LENGTH_LONG)
+                        .show()
+                }
+            })
+
+        var voteService = VoteService(this)
 
         voteSubmitBtn.setOnClickListener {
 
-            radioGroup.setOnCheckedChangeListener(
-                RadioGroup.OnCheckedChangeListener { group, checkedId ->
-                    val radio: RadioButton = findViewById(checkedId)
-                    if (radio.isChecked) {
-
-                        if (radio.text.equals("Agree")) {
-                            voteFlag = 1
-                        } else {
-                            voteFlag = 0
-                        }
 
 
-                    } else {
-                        Toast.makeText(this, "Please Vote", LENGTH_LONG)
-                            .show()
-                    }
-                })
-            //getting vote ID
 
-            var voteService = VoteService(this)
 
 
             voteService.findAll()
 
 
-            voteService.listLiveData.observe(this, Observer {
 
-                voteID = (it.size + 1).toString()
-
-                voteService.create(voteID, gameID, EVoteType.MCI.value, voteFlag, mainclaimId.toInt())
-
-
-            })
-
-            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value+ "|" + EVoteType.MCI.value)
         }
+
+        voteService.listLiveData.observe(this, Observer {
+
+            voteID = (it.size + 1).toString()
+
+            voteService.create(voteID, gameID, EVoteType.MCI.value, voteFlag, mainclaimId.toInt())
+
+
+        })
+
+            voteService.newVote.observe(this, Observer {
+
+                socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value+ "|" + EVoteType.MCI.value)
+            })
 
 
 
