@@ -39,22 +39,12 @@ class MCAdmin : AppCompatActivity() {
         mcSubmitBtn.setOnClickListener(View.OnClickListener {
 
             mainClaimService.findAll()
-//            fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
-//                observe(lifecycleOwner, object : Observer<T> {
-//                    override fun onChanged(t: T?) {
-//                        observer.onChanged(t)
-//                        removeObserver(this)
-//                    }
-//                })
-//            }
 
         })
 
         mainClaimService.listLiveData.observe(this, Observer<List<MainClaim>> {
 
             var mainClaimID = it.size + 1
-            //checking whether main claim is empty or not
-//                if() the main claim is empty or not
 
             var mainClaimStatement = tvMainClaim.getText().toString()
 
@@ -86,6 +76,11 @@ class MCAdmin : AppCompatActivity() {
 
                     newID = it.toString().toInt()
 
+                    Toast.makeText(
+                        applicationContext,
+                        "Main Claim is submitted",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         })

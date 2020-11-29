@@ -1,5 +1,6 @@
 package com.example.tugoflogic.Admin
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.example.tugoflogic.Service.SocketService
 import com.example.tugoflogic.Service.VoteService
 import com.example.tugoflogic.models.ESocket
 import com.example.tugoflogic.models.EVoteType
+import kotlinx.android.synthetic.main.activity_m_c_admin.*
 import kotlinx.android.synthetic.main.activity_main_claim.*
 import kotlinx.android.synthetic.main.activity_main_claim_intial_voting_admin.*
 
@@ -57,35 +59,44 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
             tvFalseVote.setText("No: " + yes)
         })
 
-        startVotingBtn.setOnClickListener {
-            var socketService = SocketService(this)
+        var socketService = SocketService(this)
 
-            socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI.value)
-
-            socketService.message.observe(this, Observer { ms ->
-                ms?.let {
-                    // test
-                    Toast.makeText(
-                        this,
-                        it,
-                        Toast.LENGTH_SHORT
-                    ).show();
+        socketService.message.observe(this, Observer { ms ->
+            ms?.let {
+                // test
+                Toast.makeText(
+                    this,
+                    it,
+                    Toast.LENGTH_SHORT
+                ).show();
 
 
-                    var message = it.split('|')[0];
+                var message = it.split('|')[0];
 //                    var id = it.split('|')[1];
 
-                    if (ESocket.NEW_VOTE_MAINCLAIM1_COMING.value.equals(message)) {
-                        voteService.getVote(
-                            sharedPref.getInt("GAME_ID", 0).toString(),
-                            EVoteType.MCI.value.toString()
-                        );
-                    }
+                if (ESocket.NEW_VOTE_MAINCLAIM1_COMING.value.equals(message)) {
+                    voteService.getVote(
+                        sharedPref.getInt("GAME_ID", 0).toString(),
+                        EVoteType.MCI.value.toString()
+                    );
                 }
-            })
+            }
+        })
+
+        startVotingBtn.setOnClickListener {
+            socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI.value)
 
         }
 
 
+
+        next.setOnClickListener(View.OnClickListener {
+//            val editor = sharedPref.edit()
+//            editor.putInt("MAINCLAIM_ID", newID)
+//            editor.apply()
+//            println("MainClaimID=======>" + sharedPref.getInt("MAINCLAIM_ID", 0))
+            val intent = Intent(this, RIPDebateSelectionAdmin::class.java)
+            startActivity(intent)
+        })
     }
 }

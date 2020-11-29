@@ -14,24 +14,24 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/studentNameLabel"
+            android:id="@+id/studentName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat"
-            android:text="TextView"
+            android:text="student name"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvtVoteResult"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/border"
             android:gravity="center_horizontal"
-            android:text="TextView"
+            android:text="Yes: 0  No: 0"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -42,7 +42,7 @@
         android:background="@color/grey" />
 
     <TextView
-        android:id="@+id/ripTxtLabel"
+        android:id="@+id/ripTxt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="5dp"

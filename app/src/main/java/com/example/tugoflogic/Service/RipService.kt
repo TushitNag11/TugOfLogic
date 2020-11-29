@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.example.tugoflogic.models.MainClaim
 import com.example.tugoflogic.models.Rip
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import java.io.IOException
 
 class RipService(context: Context) {
@@ -46,6 +48,37 @@ class RipService(context: Context) {
 
     }
 
+    @Throws(IOException::class)
+    fun update(rip: Rip?) {
+        Thread {
+            println("============= update Rip")
+
+            val json = rip?.toJSON();
+
+            println(json)
+            val body: RequestBody = RequestBody.create(
+                MediaType.parse("application/json"), json
+            )
+
+            val request: Request = Request.Builder()
+                .url(Helper.GetUrl(this.context) + "rips")
+                .put(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                try {
+                    var jsonText = response.body()!!.string();
+                    println(jsonText);
+
+
+                } catch (e: Exception) {
+
+                }
+            }
+
+        }.start()
+
+    }
 
 
 }
