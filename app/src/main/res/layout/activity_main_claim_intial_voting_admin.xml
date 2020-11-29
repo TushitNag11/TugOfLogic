@@ -60,29 +60,27 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="120dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
-            android:background="#4CAF50" />
+        <TextView
+            android:id="@+id/tvTrueVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="TextView" />
 
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="120dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
-            android:background="#F44336" />
+        <TextView
+            android:id="@+id/tvFalseVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="TextView" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,7 +94,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/refresh"
+                android:id="@+id/startVotingBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="60dp"
