@@ -10,12 +10,14 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
-import android.widget.Toast.LENGTH_SHORT
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.MainClaimService
 import com.example.tugoflogic.Service.SocketService
+import com.example.tugoflogic.Service.VoteService
 import com.example.tugoflogic.models.ESocket
+import com.example.tugoflogic.models.EVoteType
+import com.example.tugoflogic.models.Vote
 import kotlinx.android.synthetic.main.activity_main_claim.*
 
 /**
@@ -32,14 +34,16 @@ class MainClaimActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_claim)
 
         var mainclaimId = ""
-
+        var vote = Vote
+        var voteFlag = 0
+        var voteID = ""
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
         val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
 
         println("MC gameId: " + gameID)
 
-        val submitBtn = findViewById<Button>(R.id.submitBtn)
+        val submitBtn = findViewById<Button>(R.id.voteSubmitBtn)
         submitBtn.setOnClickListener {
 
             val intent = Intent(this, ReasonInPlay_User::class.java)
@@ -82,40 +86,64 @@ class MainClaimActivity : AppCompatActivity() {
                     println("Start Vote:" + id)
                     radioGroup.visibility = View.VISIBLE
                     submitBtn.visibility = View.VISIBLE
+                }
+
+
             }
+            mainClaimService.listLiveData.observe(this, Observer { ms ->
+                ms?.let {
+                    var found = it.find { x -> x._id.equals(mainclaimId) }
+                    if (found != null) {
+                        mainclaimDisplay.setText(found.statement.toString())
+                    }
+                }
+            })
+
+        })
 
 
 
-
-        }
+        voteSubmitBtn.setOnClickListener {
 
             radioGroup.setOnCheckedChangeListener(
                 RadioGroup.OnCheckedChangeListener { group, checkedId ->
                     val radio: RadioButton = findViewById(checkedId)
-                    if(radio.isChecked)
-                    {
-                        socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value)
-                        Toast.makeText(applicationContext," On checked change :"+
-                                " ${radio.text}",
-                            Toast.LENGTH_SHORT).show()
-                    }
-                    else
-                    {
-                        Toast.makeText(this,"Please Vote", LENGTH_LONG)
+                    if (radio.isChecked) {
+
+                        if (radio.text.equals("Agree")) {
+                            voteFlag = 1
+                        } else {
+                            voteFlag = 0
+                        }
+
+
+                    } else {
+                        Toast.makeText(this, "Please Vote", LENGTH_LONG)
                             .show()
                     }
                 })
+            //getting vote ID
 
-        mainClaimService.listLiveData.observe(this, Observer { ms ->
-            ms?.let {
-                var found = it.find { x -> x._id.equals(mainclaimId) }
-                if (found != null) {
-                    mainclaimDisplay.setText(found.statement.toString())
-                }
-            }
-        })
+            var voteService = VoteService(this)
 
-    })
+
+            voteService.findAll()
+
+
+            voteService.listLiveData.observe(this, Observer {
+
+                voteID = (it.size + 1).toString()
+
+                voteService.create(voteID, gameID, EVoteType.MCI.value, voteFlag, mainclaimId.toInt())
+
+
+            })
+
+            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value+ "|" + EVoteType.MCI.value)
+        }
+
+
+
     }
 
 }
