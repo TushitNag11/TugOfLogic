@@ -28,7 +28,7 @@ class finalResultsDisplay : AppCompatActivity() {
         barDataSet1.color = ColorTemplate.COLORFUL_COLORS.get(0);
         val barDataSet2 = BarDataSet(entries2, "No")
         barDataSet2.color = ColorTemplate.COLORFUL_COLORS.get(1);
-        
+
         val data = BarData(barDataSet1, barDataSet2)
         barChart.data = data // set the data and list of lables into chart
         barChart.legend.isEnabled = true;
