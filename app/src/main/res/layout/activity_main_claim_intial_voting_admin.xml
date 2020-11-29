@@ -46,7 +46,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/reasoninplayDisplay"
+            android:id="@+id/tvMainClaimDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -54,8 +54,8 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/montserrat"
+            android:hint="Loading"
             android:justificationMode="inter_word"
-            android:text="Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget."
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
