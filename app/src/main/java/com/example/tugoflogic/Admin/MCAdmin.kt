@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.MainClaimService
 import com.example.tugoflogic.Service.SocketService
 import com.example.tugoflogic.models.ESocket
+import com.example.tugoflogic.models.MainClaim
 import kotlinx.android.synthetic.main.activity_m_c_admin.*
 import kotlinx.android.synthetic.main.activity_main_claim.*
 
@@ -33,30 +36,41 @@ class MCAdmin : AppCompatActivity() {
         mcSubmitBtn.setOnClickListener(View.OnClickListener {
 
             mainClaimService.findAll()
-            mainClaimService.listLiveData.observe(this, Observer {
+//            fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
+//                observe(lifecycleOwner, object : Observer<T> {
+//                    override fun onChanged(t: T?) {
+//                        observer.onChanged(t)
+//                        removeObserver(this)
+//                    }
+//                })
+//            }
 
-                var mainClaimID = it.size + 1
-                //checking whether main claim is empty or not
+        })
+
+        mainClaimService.listLiveData.observe(this, Observer<List<MainClaim>> {
+
+            var mainClaimID = it.size + 1
+            //checking whether main claim is empty or not
 //                if() the main claim is empty or not
 
-                var mainClaimStatement = tvMainClaim.getText().toString()
+            var mainClaimStatement = tvMainClaim.getText().toString()
 
 
-                if (mainClaimStatement != "") {
-                    mainClaimService.create(mainClaimID, gameID, mainClaimStatement)
+            if (mainClaimStatement != "") {
+                mainClaimService.create(mainClaimID, gameID, mainClaimStatement)
 
-                } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "Main Claim should not be empty",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Main Claim should not be empty",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
-                println(mainClaimID.toString());
-
-            })
+            println(mainClaimID.toString());
         })
+
+
 
         mainClaimService.newMainClaimData.observe(this, Observer { ms ->
             ms?.let {

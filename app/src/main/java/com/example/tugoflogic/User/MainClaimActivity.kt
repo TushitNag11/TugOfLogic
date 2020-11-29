@@ -25,6 +25,8 @@ class MainClaimActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_claim)
 
+        var mainclaimId = "";
+
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
         val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt();
@@ -52,19 +54,21 @@ class MainClaimActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show();
 
-                val mainclaimId = it.split("|")[1];
+                val mainclaimId = it;
 
                 mainClaimService.findAll();
                 // get new mainclaim and display
 
-                mainClaimService.listLiveData.observe(this, Observer { ms ->
-                    ms?.let {
-                        var found = it.find { x -> x._id === mainclaimId.toInt() }
-                        if (found != null) {
-                            mainclaimDisplay.setText(found.statement.toString());
-                        }
-                    }
-                })
+
+            }
+        })
+
+        mainClaimService.listLiveData.observe(this, Observer { ms ->
+            ms?.let {
+                var found = it.find { x -> x._id.equals(mainclaimId) }
+                if (found != null) {
+                    mainclaimDisplay.setText(found.statement.toString());
+                }
             }
         })
 
