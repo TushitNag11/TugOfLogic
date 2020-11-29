@@ -69,7 +69,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="20dp"
-            android:text="TextView" />
+            android:text="Yes: 0" />
 
         <TextView
             android:id="@+id/tvFalseVote"
@@ -80,7 +80,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="20dp"
-            android:text="TextView" />
+            android:text="No: 0" />
 
         <LinearLayout
             android:layout_width="match_parent"

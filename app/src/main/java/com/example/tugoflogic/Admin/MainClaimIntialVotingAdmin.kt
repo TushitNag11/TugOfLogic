@@ -46,21 +46,15 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
         })
 
 
-        var voteService = VoteService()
+        var voteService = VoteService(this)
 
-        voteService.listLiveData.observe(this, Observer {
-
-            var voteFound = it.find { x -> x.statement_id.equals(mainclaimID) }
-
-            if (voteFound != null) {
-
-                if (voteFound.vote_flag.equals(true)) {
-                    var trueCounter = 0
-                    trueCounter + 1;
-                }
-
-            }
-
+        voteService.voteResult.observe(this, Observer {
+            // listen and render vote results
+            println("Vote Result: " + it)
+            var yes = it.split('|')[0];
+            var no = it.split('|')[1];
+            tvTrueVote.setText("Yes: " + yes)
+            tvFalseVote.setText("No: " + yes)
         })
 
         startVotingBtn.setOnClickListener {
@@ -77,6 +71,16 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show();
 
+
+                    var message = it.split('|')[0];
+//                    var id = it.split('|')[1];
+
+                    if (ESocket.NEW_VOTE_MAINCLAIM1_COMING.value.equals(message)) {
+                        voteService.getVote(
+                            sharedPref.getInt("GAME_ID", 0).toString(),
+                            EVoteType.MCI.value.toString()
+                        );
+                    }
                 }
             })
 
