@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -43,24 +44,38 @@ class MainClaimActivity : AppCompatActivity() {
 
         var mainClaimService = MainClaimService(this)
 
+        radioGroup.visibility = View.INVISIBLE
+        submitBtn.visibility = View.INVISIBLE
+
 
         // ws listening
         var socketService = SocketService(this);
         socketService.message.observe(this, Observer { ms ->
             ms?.let {
                 var message = it.split('|')[0];
-                var id = it.split('|')[1].toInt();
+                var id = it.split('|')[1];
+
+                Toast.makeText(
+                    this,
+                    it,
+                    Toast.LENGTH_SHORT
+                ).show();
+
+                println(it);
+
+                // new main claim
                 if (ESocket.SHOW_MAINCLAIM.value.equals(message)) {
                     // test
-                    Toast.makeText(
-                        this,
-                        it,
-                        Toast.LENGTH_SHORT
-                    ).show();
 
-                    val mainclaimId = id;
+
+                    mainclaimId = id;
 
                     mainClaimService.findAll();
+                }
+
+                // vote
+                if (ESocket.VOTE_MAINCLAIM1.value.equals(message)) {
+                    println("Start Vote:" + id);
                 }
 
 
