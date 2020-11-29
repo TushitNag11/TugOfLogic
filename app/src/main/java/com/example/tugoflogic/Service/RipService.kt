@@ -2,7 +2,7 @@ package com.example.tugoflogic.Service
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.example.tugoflogic.models.MainClaim
+import com.example.tugoflogic.models.ERipStatus
 import com.example.tugoflogic.models.Rip
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -15,6 +15,7 @@ class RipService(context: Context) {
 
     val listLiveData = MutableLiveData<List<Rip>>()
     private var context: Context;
+    var newRIP = MutableLiveData<Int>();
 
     init {
         this.context = context;
@@ -79,6 +80,41 @@ class RipService(context: Context) {
         }.start()
 
     }
+
+
+    @Throws(IOException::class)
+    fun create(id: String, gameid: Int, statement: String, status: ERipStatus) {
+        Thread {
+            println("============= new RIP")
+            val json = Rip.toNewObject(id,gameid,statement,status );
+
+            println(json)
+            val body: RequestBody = RequestBody.create(
+                MediaType.parse("application/json"), json
+            )
+
+            val request: Request = Request.Builder()
+                .url(Helper.GetUrl(this.context) + "rips")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                try {
+                    var jsonText = response.body()!!.string();
+                    println(jsonText);
+                    if (jsonText.equals("inserted")) {
+                        this.newRIP.postValue(id.toInt());
+
+                    }
+
+                } catch (e: Exception) {
+
+                }
+            }
+
+        }.start()
+    }
+
 
 
 }
