@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.MainClaimService
 import com.example.tugoflogic.Service.SocketService
+import com.example.tugoflogic.models.ESocket
 import kotlinx.android.synthetic.main.activity_main_claim.*
 
 /**
@@ -47,17 +48,20 @@ class MainClaimActivity : AppCompatActivity() {
         var socketService = SocketService(this);
         socketService.message.observe(this, Observer { ms ->
             ms?.let {
-                // test
-                Toast.makeText(
-                    this,
-                    it,
-                    Toast.LENGTH_SHORT
-                ).show();
+                var message = it.split('|')[0];
+                var id = it.split('|')[1].toInt();
+                if (ESocket.SHOW_MAINCLAIM.value.equals(message)) {
+                    // test
+                    Toast.makeText(
+                        this,
+                        it,
+                        Toast.LENGTH_SHORT
+                    ).show();
 
-                val mainclaimId = it;
+                    val mainclaimId = id;
 
-                mainClaimService.findAll();
-                // get new mainclaim and display
+                    mainClaimService.findAll();
+                }
 
 
             }
