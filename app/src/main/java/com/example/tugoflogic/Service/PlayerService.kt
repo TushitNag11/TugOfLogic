@@ -7,17 +7,21 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
 
-class PlayerService {
-    private val client = OkHttpClient()
-
+class PlayerService(context: Context) {
+    private var client = OkHttpClient()
+    private var context: Context;
     val listLiveData = MutableLiveData<List<Player>>()
 
+    init {
+        this.context = context;
+    }
+
     @Throws(IOException::class)
-    fun findAll(url: String?, context: Context) {
+    fun findAll(context: Context) {
         Thread {
             println("============= call api")
             val request: Request = Request.Builder()
-                .url(url)
+                .url(Helper.GetUrl(this.context) + "votes")
                 .build()
             client.newCall(request).execute().use { response ->
                 try {

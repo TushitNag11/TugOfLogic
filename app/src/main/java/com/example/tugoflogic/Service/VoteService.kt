@@ -7,17 +7,22 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
 
-class VoteService {
+class VoteService(context: Context) {
     private val client = OkHttpClient()
-
+    var context: Context;
     val listLiveData = MutableLiveData<List<Vote>>()
+    val voteResult = MutableLiveData<String>()
+
+    init {
+        this.context = context;
+    }
 
     @Throws(IOException::class)
-    fun findAll(url: String?, context: Context) {
+    fun findAll() {
         Thread {
             println("============= call api")
             val request: Request = Request.Builder()
-                .url(url)
+                .url(Helper.GetUrl(this.context) + "votes")
                 .build()
             client.newCall(request).execute().use { response ->
                 try {
@@ -36,6 +41,26 @@ class VoteService {
 
             }
         }.start()
+    }
 
+    @Throws(IOException::class)
+    fun getVote(game_id: String, vote_type_id: String) {
+        Thread {
+            println("============= call api")
+            val request: Request = Request.Builder()
+                .url(Helper.GetUrl(this.context) + "votes/" + game_id + "/" + vote_type_id)
+                .build()
+            client.newCall(request).execute().use { response ->
+                try {
+                    var jsonText = response.body()!!.string();
+                    println("====" + jsonText)
+
+                    voteResult.postValue(jsonText);
+                } catch (e: Exception) {
+
+                }
+
+            }
+        }.start()
     }
 }
