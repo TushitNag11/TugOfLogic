@@ -12,9 +12,7 @@ class Helper {
         inline fun <reified T> fromJson(json: String): T {
             return Gson().fromJson(json, object : TypeToken<T>() {}.type)
         }
-//        inline fun <reified T> toJson(json: String): T {
-//            return Gson().fromJson(json, object : TypeToken<T>() {}.type)
-//        }
+
         fun GetUrl(context: Context): String? {
             var string: String? = ""
             try {
