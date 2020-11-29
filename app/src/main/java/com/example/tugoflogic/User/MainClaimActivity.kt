@@ -85,25 +85,26 @@ class MainClaimActivity : AppCompatActivity() {
             }
 
 
-                radioGroup.setOnCheckedChangeListener(
-                    RadioGroup.OnCheckedChangeListener { group, checkedId ->
-                        val radio: RadioButton = findViewById(checkedId)
-                        if(radio.isChecked)
-                        {
-                            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value)
-                            Toast.makeText(applicationContext," On checked change :"+
-                                    " ${radio.text}",
-                                Toast.LENGTH_SHORT).show()
-                        }
-                        else
-                        {
-                            Toast.makeText(this,"Please Vote", LENGTH_LONG)
-                                .show()
-                        }
-                    })
 
 
         }
+
+            radioGroup.setOnCheckedChangeListener(
+                RadioGroup.OnCheckedChangeListener { group, checkedId ->
+                    val radio: RadioButton = findViewById(checkedId)
+                    if(radio.isChecked)
+                    {
+                        socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value)
+                        Toast.makeText(applicationContext," On checked change :"+
+                                " ${radio.text}",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                    else
+                    {
+                        Toast.makeText(this,"Please Vote", LENGTH_LONG)
+                            .show()
+                    }
+                })
 
         mainClaimService.listLiveData.observe(this, Observer { ms ->
             ms?.let {
