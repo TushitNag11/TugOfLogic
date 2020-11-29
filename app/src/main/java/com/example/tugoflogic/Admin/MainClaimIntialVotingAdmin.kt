@@ -49,7 +49,7 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
 
        var socketService = SocketService(this)
 
-        socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI)
+        socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI.value)
 
         socketService.message.observe(this, Observer { ms ->
             ms?.let {
