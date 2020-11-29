@@ -9,5 +9,12 @@ public class Rip(
     var status: ERipStatus
 ) {
 
+        companion object {
+        fun toNewObject(id: Int,game_id: Int,statement: String, status: ERipStatus): String {
+            return "{\"_id\": \"${id}\", \"game_id\":${game_id}, \"user_id\": 1, \"statement\": \"${statement}\", \"status\": \"${status}\"}"
+        }
+    }
+
+
 
 }

@@ -2,7 +2,6 @@ package com.example.tugoflogic.Service
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.example.tugoflogic.models.MainClaim
 import com.example.tugoflogic.models.Vote
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -15,7 +14,7 @@ class VoteService(context: Context) {
     var context: Context;
     val listLiveData = MutableLiveData<List<Vote>>()
     val voteResult = MutableLiveData<String>()
-
+    var newVote = MutableLiveData<Int>();
     init {
         this.context = context;
     }
@@ -68,7 +67,7 @@ class VoteService(context: Context) {
     }
 
     @Throws(IOException::class)
-    fun create(id: Int, gameid: Int, voteTypeId: Int,voteFlag: Boolean, statementId: Int ) {
+    fun create(id: String, gameid: Int, voteTypeId: Int, voteFlag: Int, statementId: Int ) {
         Thread {
             println("============= new VOTE")
             val json = Vote.toNewObject(id,gameid, voteTypeId, voteFlag, statementId );
@@ -88,7 +87,7 @@ class VoteService(context: Context) {
                     var jsonText = response.body()!!.string();
                     println(jsonText);
                     if (jsonText.equals("inserted")) {
-                        this.voteResult.postValue(id.toString());
+                        this.newVote.postValue(id.toInt());
 
                     }
 
