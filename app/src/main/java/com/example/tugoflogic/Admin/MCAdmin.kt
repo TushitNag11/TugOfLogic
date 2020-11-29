@@ -25,8 +25,10 @@ class MCAdmin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_m_c_admin)
 
-        val sharedPref: SharedPreferences =
+        var sharedPref =
             this.getSharedPreferences("com.example.tugoflogic.Admin", 0)
+
+        // get gameID
         val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt();
         println("Game ID ${gameID}")
         tvGameId.setText(gameID.toString())
@@ -89,13 +91,11 @@ class MCAdmin : AppCompatActivity() {
         })
 
         mcSubmitBtn2.setOnClickListener(View.OnClickListener {
-            val sharedPref: SharedPreferences =
-                this.getSharedPreferences("com.example.tugofLogic.Admin", 0)
             val editor = sharedPref.edit()
 
             editor.putInt("MAINCLAIM_ID", newID)
             editor.apply()
-            println("MainClaimID=======>"+sharedPref.getInt("MAINCLAIM_ID",0))
+            println("MainClaimID=======>" + sharedPref.getInt("MAINCLAIM_ID", 0))
             val intent = Intent(this, MainClaimIntialVotingAdmin::class.java)
             startActivity(intent)
         })
