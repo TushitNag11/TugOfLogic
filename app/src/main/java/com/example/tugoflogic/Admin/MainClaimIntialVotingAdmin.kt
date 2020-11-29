@@ -11,6 +11,7 @@ import com.example.tugoflogic.Service.MainClaimService
 import com.example.tugoflogic.Service.SocketService
 import com.example.tugoflogic.Service.VoteService
 import com.example.tugoflogic.models.ESocket
+import com.example.tugoflogic.models.EVoteType
 import kotlinx.android.synthetic.main.activity_main_claim.*
 import kotlinx.android.synthetic.main.activity_main_claim_intial_voting_admin.*
 
@@ -48,7 +49,7 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
 
        var socketService = SocketService(this)
 
-        socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + it)
+        socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI)
 
         socketService.message.observe(this, Observer { ms ->
             ms?.let {
