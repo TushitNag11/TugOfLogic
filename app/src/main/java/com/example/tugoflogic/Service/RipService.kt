@@ -2,22 +2,29 @@ package com.example.tugoflogic.Service
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
+import com.example.tugoflogic.models.MainClaim
 import com.example.tugoflogic.models.Rip
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
 
-class RipService {
+class RipService(context: Context) {
     private val client = OkHttpClient()
 
     val listLiveData = MutableLiveData<List<Rip>>()
+    private var context: Context;
+
+    init {
+        this.context = context;
+    }
 
     @Throws(IOException::class)
-    fun findAll(url: String?, context: Context) {
+    fun findAll() {
         Thread {
             println("============= call api")
             val request: Request = Request.Builder()
-                .url(url)
+                .url(Helper.GetUrl(this.context) + "rips")
+
                 .build()
             client.newCall(request).execute().use { response ->
                 try {
