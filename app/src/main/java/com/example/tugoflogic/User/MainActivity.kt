@@ -13,6 +13,7 @@ import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.*
 import com.example.tugoflogic.Service.Helper.Companion.GetUrl
 import com.example.tugoflogic.models.ESocket
+import com.example.tugoflogic.models.EVoteType
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStream
 
@@ -120,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         })
 
 //        socketService.sendMessage(ESocket.SHOW_MAINCLAIM);
-
+//        println("vote type " + EVoteType.MCI.value);
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
