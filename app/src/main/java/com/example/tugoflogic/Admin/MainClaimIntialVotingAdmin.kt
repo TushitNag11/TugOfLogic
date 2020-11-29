@@ -13,7 +13,7 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.Admin", 0)
 
-        val mainclaimID = sharedPref.getInt("MAINCLAIM_ID", 0).toString().toInt()
+        val mainclaimID = sharedPref.getInt("MAINCLAIM_ID", 0)
 
         println("MainClaim ID ---> $mainclaimID")
     }
