@@ -84,13 +84,16 @@ class MainClaimActivity : AppCompatActivity() {
                     submitBtn.visibility = View.VISIBLE
             }
 
-                
+
                 radioGroup.setOnCheckedChangeListener(
                     RadioGroup.OnCheckedChangeListener { group, checkedId ->
                         val radio: RadioButton = findViewById(checkedId)
                         if(radio.isChecked)
                         {
                             socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value)
+                            Toast.makeText(applicationContext," On checked change :"+
+                                    " ${radio.text}",
+                                Toast.LENGTH_SHORT).show()
                         }
                         else
                         {
