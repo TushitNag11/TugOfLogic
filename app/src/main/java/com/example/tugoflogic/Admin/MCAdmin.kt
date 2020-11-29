@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_main_claim.*
 
 
 class MCAdmin : AppCompatActivity() {
+    var newID = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_m_c_admin)
@@ -80,23 +81,23 @@ class MCAdmin : AppCompatActivity() {
                     // call ws to broadcast to users
                     var socketService = SocketService(this);
                     socketService.sendMessage(ESocket.SHOW_MAINCLAIM.value + "|" + it)
-                    val sharedPref: SharedPreferences =
-                        this.getSharedPreferences("com.example.tugofLogic.Admin", 0)
-                    val editor = sharedPref.edit()
-                    var newID = it.toString().toInt()
-                    editor.putInt("MAINCLAIM_ID", newID)
-                    editor.apply()
-                    println("MainClaimID=======>"+sharedPref.getInt("MAINCLAIM_ID",0))
-                    val intent = Intent(this, MainClaimIntialVotingAdmin::class.java)
-                    startActivity(intent)
+
+                    newID = it.toString().toInt()
+
                 }
             }
         })
 
         mcSubmitBtn2.setOnClickListener(View.OnClickListener {
+            val sharedPref: SharedPreferences =
+                this.getSharedPreferences("com.example.tugofLogic.Admin", 0)
+            val editor = sharedPref.edit()
 
-
-
+            editor.putInt("MAINCLAIM_ID", newID)
+            editor.apply()
+            println("MainClaimID=======>"+sharedPref.getInt("MAINCLAIM_ID",0))
+            val intent = Intent(this, MainClaimIntialVotingAdmin::class.java)
+            startActivity(intent)
         })
     }
 }
