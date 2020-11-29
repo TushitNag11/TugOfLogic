@@ -30,5 +30,10 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
+        <com.github.mikephil.charting.charts.BarChart
+            android:minHeight="400dp"
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </ScrollView>
