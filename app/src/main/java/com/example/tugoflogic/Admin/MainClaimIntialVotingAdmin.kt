@@ -45,48 +45,42 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
             }
         })
 
-    startVotingBtn.setOnClickListener { View.OnClickListener {
 
-       var socketService = SocketService(this)
+        var voteService = VoteService()
 
-        socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI.value)
+        voteService.listLiveData.observe(this, Observer {
 
-        socketService.message.observe(this, Observer { ms ->
-            ms?.let {
-                // test
-                Toast.makeText(
-                    this,
-                    it,
-                    Toast.LENGTH_SHORT
-                ).show();
+            var voteFound = it.find { x -> x.statement_id.equals(mainclaimID) }
 
-               var voteService = VoteService()
+            if (voteFound != null) {
 
-                voteService.listLiveData.observe(this, Observer {
-
-                  var voteFound =   it.find { x -> x.statement_id.equals(mainclaimID) }
-
-                    if (voteFound != null) {
-
-                            if(voteFound.vote_flag.equals(true))
-                            {
-                                var trueCounter = 0
-                                trueCounter+ 1;
-                            }
-
-                        }
-
-                })
-
+                if (voteFound.vote_flag.equals(true)) {
+                    var trueCounter = 0
+                    trueCounter + 1;
+                }
 
             }
+
         })
 
+        startVotingBtn.setOnClickListener {
+            var socketService = SocketService(this)
 
+            socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCI.value)
 
+            socketService.message.observe(this, Observer { ms ->
+                ms?.let {
+                    // test
+                    Toast.makeText(
+                        this,
+                        it,
+                        Toast.LENGTH_SHORT
+                    ).show();
 
-    } }
+                }
+            })
 
+        }
 
 
     }
