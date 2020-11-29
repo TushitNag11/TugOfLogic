@@ -23,7 +23,7 @@ class UserService(context: Context) {
         Thread {
             println("============= call api")
             val request: Request = Request.Builder()
-                .url(GetUrl(this.context) + "games")
+                .url(GetUrl(this.context) + "users")
                 .build()
             client.newCall(request).execute().use { response ->
                 try {

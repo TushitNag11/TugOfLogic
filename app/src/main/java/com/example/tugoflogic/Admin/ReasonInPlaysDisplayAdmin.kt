@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.VoteService
+import com.example.tugoflogic.models.EVoteType
 
 class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,10 @@ class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
         voteService.listLiveData.observe(this, Observer {
             // listen and render vote results
             println(it)
+
+            // filter by gameId
+            var list = it.filter { x -> x.game_id == 1 && x.vote_type_id == EVoteType.RIP.value };
+            println(list.size)
         })
 
         voteService.findAll()

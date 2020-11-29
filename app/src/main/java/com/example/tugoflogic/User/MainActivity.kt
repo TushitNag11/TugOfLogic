@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
                 userService.listLiveData.observe(this, Observer { ms ->
                     ms?.let {
                         println(it.toTypedArray().toString());
-
-                        val found = it.find {
-                            it.username.toString().equals(username) && it.password.toString()
+                        var user = it;
+                        val found = user.find {
+                            it.username.equals(username) && it.password
                                 .equals(password)
                         }
                         if (found != null) {
