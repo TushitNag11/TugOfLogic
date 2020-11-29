@@ -123,12 +123,7 @@ class MainClaimActivity : AppCompatActivity() {
         voteSubmitBtn.setOnClickListener {
 
 
-
-
-
-
             voteService.findAll()
-
 
 
         }
@@ -142,11 +137,10 @@ class MainClaimActivity : AppCompatActivity() {
 
         })
 
-            voteService.newVote.observe(this, Observer {
+        voteService.newVote.observe(this, Observer {
 
-                socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value+ "|" + EVoteType.MCI.value)
-            })
-
+            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value + "|" + EVoteType.MCI.value)
+        })
 
 
     }

@@ -23,13 +23,14 @@ class ReasonInPlay_User : AppCompatActivity() {
 
         var gameID = 0
         var ripID = ""
-        var ripStatement=""
+        var ripStatement = ""
 
 
         //getting game ID from shared preferences
 
-        var sharedPref: SharedPreferences = this.getSharedPreferences("com.example.tugoflogic.User",0)
-        gameID = sharedPref.getInt("GAME_ID",0).toString().toInt()
+        var sharedPref: SharedPreferences =
+            this.getSharedPreferences("com.example.tugoflogic.User", 0)
+        gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
 
         //creating service object
         var ripService = RipService(this)
@@ -41,12 +42,10 @@ class ReasonInPlay_User : AppCompatActivity() {
 
             ripStatement = ripEditText.getText().toString()
 
-            if(ripStatement == "")
-            {
+            if (ripStatement == "") {
                 Toast.makeText(this, "Please Enter Your Reason In Play", Toast.LENGTH_LONG)
                     .show()
-            }
-            else{
+            } else {
                 ripService.findAll() // this call
 
 
@@ -57,8 +56,8 @@ class ReasonInPlay_User : AppCompatActivity() {
         ripService.listLiveData.observe(this, Observer {
 
 
-            ripID = (it.size+1).toString()
-            ripService.create(ripID,gameID,ripStatement,ERipStatus.PLAYED)
+            ripID = (it.size + 1).toString()
+            ripService.create(ripID, gameID, ripStatement, ERipStatus.PLAYED)
 
 
         })
