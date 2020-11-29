@@ -54,7 +54,7 @@ class MainClaimActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show();
 
-                mainclaimId = it.split('|')[1];
+                val mainclaimId = it;
 
                 mainClaimService.findAll();
                 // get new mainclaim and display

@@ -1,6 +1,7 @@
 package com.example.tugoflogic.Admin
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -79,8 +80,23 @@ class MCAdmin : AppCompatActivity() {
                     // call ws to broadcast to users
                     var socketService = SocketService(this);
                     socketService.sendMessage(ESocket.SHOW_MAINCLAIM.value + "|" + it)
+                    val sharedPref: SharedPreferences =
+                        this.getSharedPreferences("com.example.tugofLogic.Admin", 0)
+                    val editor = sharedPref.edit()
+                    var newID = it.toString().toInt()
+                    editor.putInt("MAINCLAIM_ID", newID)
+                    editor.apply()
+                    println("MainClaimID=======>"+sharedPref.getInt("MAINCLAIM_ID",0))
+                    val intent = Intent(this, MainClaimIntialVotingAdmin::class.java)
+                    startActivity(intent)
                 }
             }
+        })
+
+        mcSubmitBtn2.setOnClickListener(View.OnClickListener {
+
+
+
         })
     }
 }
