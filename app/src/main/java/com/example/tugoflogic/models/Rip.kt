@@ -16,8 +16,8 @@ public class Rip(
     }
 
     companion object {
-        fun toNewObject(id: String, game_id: Int, statement: String, status: ERipStatus): String {
-            return "{\"_id\": \"${id}\", \"game_id\":${game_id}, \"user_id\": 1, \"statement\": \"${statement}\", \"status\": \"${status}\"}"
+        fun toNewObject(id: String, game_id: Int, user_id: Int, statement: String, status: ERipStatus): String {
+            return "{\"_id\": \"${id}\", \"game_id\":${game_id}, \"user_id\": ${user_id}, \"statement\": \"${statement}\", \"status\": \"${status}\"}"
         }
     }
 

@@ -31,6 +31,7 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
         val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
+        var userID = sharedPref.getInt("USER_ID", 0).toString().toInt()
 
 
 
@@ -122,7 +123,7 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID, gameID, EVoteType.MCF.value, voteFlag, mainclaimId.toInt())
+            voteService.create(voteID, gameID, userID, EVoteType.MCF.value, voteFlag, mainclaimId.toInt())
 
 
         })

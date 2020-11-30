@@ -1,6 +1,7 @@
 package com.example.tugoflogic.User
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -59,6 +60,14 @@ class MainActivity : AppCompatActivity() {
                             } else {
                                 // goto user page
                                 // check user login
+                                var userID = found._id
+                                val sharedPref: SharedPreferences =
+                                    this.getSharedPreferences("com.example.tugoflogic.User", 0)
+
+                                val editor = sharedPref.edit()
+                                editor.putInt("USER_ID", userID.toInt())
+                                editor.apply()
+
                                 val intent = Intent(this, GameidActivity::class.java)
                                 startActivity(intent)
                             }

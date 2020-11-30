@@ -83,10 +83,10 @@ class RipService(context: Context) {
 
 
     @Throws(IOException::class)
-    fun create(id: String, gameid: Int, statement: String, status: ERipStatus) {
+    fun create(id: String, gameid: Int,user_id:Int, statement: String, status: ERipStatus) {
         Thread {
             println("============= new RIP")
-            val json = Rip.toNewObject(id,gameid,statement,status );
+            val json = Rip.toNewObject(id,gameid,user_id,statement,status );
 
             println(json)
             val body: RequestBody = RequestBody.create(

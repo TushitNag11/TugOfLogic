@@ -40,20 +40,15 @@ class MainClaimActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
         val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
+        var userID = sharedPref.getInt("USER_ID", 0).toString().toInt()
 
         println("MC gameId: " + gameID)
 
-        val submitBtn = findViewById<Button>(R.id.voteSubmitBtn)
-        submitBtn.setOnClickListener {
-
-            val intent = Intent(this, ReasonInPlay_User::class.java)
-            startActivity(intent)
-        }
 
         var mainClaimService = MainClaimService(this)
 
         radioGroup.visibility = View.INVISIBLE
-        submitBtn.visibility = View.INVISIBLE
+        voteSubmitBtn.visibility = View.INVISIBLE
 
 
         // ws listening
@@ -89,7 +84,7 @@ class MainClaimActivity : AppCompatActivity() {
                 if (ESocket.VOTE_MAINCLAIM1.value.equals(message)) {
                     println("Start Vote:" + id)
                     radioGroup.visibility = View.VISIBLE
-                    submitBtn.visibility = View.VISIBLE
+                    voteSubmitBtn.visibility = View.VISIBLE
                 }
 
 
@@ -128,6 +123,8 @@ class MainClaimActivity : AppCompatActivity() {
 
 
             voteService.findAll()
+            val intent = Intent(this, ReasonInPlay_User::class.java)
+            startActivity(intent)
 
 
         }
@@ -136,7 +133,7 @@ class MainClaimActivity : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID, gameID, EVoteType.MCI.value, voteFlag, mainclaimId.toInt())
+            voteService.create(voteID, gameID,userID ,EVoteType.MCI.value, voteFlag, mainclaimId.toInt())
 
 
         })
