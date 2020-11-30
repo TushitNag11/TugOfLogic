@@ -14,11 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Admin.AdminMainClaimFinalVotingActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Admin.ripVotingResultsAdmin"></activity>
         <activity android:name=".Admin.RIPDebateSelectionAdmin"></activity>
@@ -35,7 +31,11 @@
         <activity android:name=".User.GameidActivity" />
         <activity android:name=".User.SignupActivity" />
         <activity android:name=".User.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -25,7 +25,7 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_claim_final_voting_user)
 
-        var mainclaimId = ""
+
         var vote = Vote
         var voteFlag = 0
         var voteID = ""
@@ -33,16 +33,26 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
         val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
         var userID = sharedPref.getInt("USER_ID", 0).toString().toInt()
+        var mainclaimId = sharedPref.getInt("MAINCLAIM_ID", 0).toString().toInt()
 
 
 
         var mainClaimService = MainClaimService(this)
 
         radioGroupFinal.visibility = View.INVISIBLE
-        voteSubmitBtn.visibility = View.INVISIBLE
+        submitVote.visibility = View.INVISIBLE
 
 
+            mainClaimService.findAll()
 
+        mainClaimService.listLiveData.observe(this, Observer { ms ->
+            ms?.let {
+                var found = it.find { x -> x._id.equals(mainclaimId) }
+                if (found != null) {
+                    tvMCDisplay.setText(found.statement.toString())
+                }
+            }
+        })
         // ws listening
         var socketService = SocketService(this)
         socketService.message.observe(this, Observer { ms ->
@@ -57,35 +67,17 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
                 ).show()
 
                 println(it)
-
-                // new main claim
-                if (ESocket.SHOW_MAINCLAIM.value.equals(message)) {
-                    // test
-
-
-                    mainclaimId = id
-
-                    mainClaimService.findAll()
-                }
-
                 // vote
-                if (ESocket.VOTE_MAINCLAIM1.value.equals(message)) {
+                if (ESocket.VOTE_MAINCLAIM2.value.equals(message)) {
                     println("Start Vote:" + id)
                     radioGroupFinal.visibility = View.VISIBLE
-                    voteSubmitBtn.visibility = View.VISIBLE
+                    submitVote.visibility = View.VISIBLE
                 }
 
 
             }
 
-            mainClaimService.listLiveData.observe(this, Observer { ms ->
-                ms?.let {
-                    var found = it.find { x -> x._id.equals(mainclaimId) }
-                    if (found != null) {
-                        tvMainClaimDisplay.setText(found.statement.toString())
-                    }
-                }
-            })
+
 
         })
 
@@ -122,7 +114,7 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID, gameID, userID, EVoteType.MCF.value, voteFlag, mainclaimId.toInt())
+            voteService.create(voteID, gameID, userID, EVoteType.MCF.value, voteFlag, mainclaimId)
 
 
         })
