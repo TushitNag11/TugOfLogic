@@ -35,8 +35,6 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
 
 
 
-
-
         var mainClaimService = MainClaimService(this)
 
         radioGroupFinal.visibility = View.INVISIBLE

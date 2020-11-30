@@ -23,6 +23,12 @@ class finalResultsDisplay : AppCompatActivity() {
             this.getSharedPreferences("com.example.tugoflogic.Admin", 0)
         var gameID = sharedPref.getInt("GAME_ID", 0).toString()
 
+        if(gameID == null){
+            sharedPref =
+                this.getSharedPreferences("com.example.tugoflogic.User", 0)
+            gameID = sharedPref.getInt("GAME_ID", 0).toString()
+        }
+
         var voteService = VoteService(this)
 
         voteService.voteResult.observe(this, Observer {

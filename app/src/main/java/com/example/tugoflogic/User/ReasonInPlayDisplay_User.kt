@@ -97,7 +97,7 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID,gameID, userID, EVoteType.RIP.value, voteFlag, ripId.toInt())
+            voteService.create(voteID, gameID, userID, EVoteType.RIP.value, voteFlag, ripId.toInt())
 
 
         })
@@ -109,10 +109,10 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
         })
 
-    nextBTNRIP.setOnClickListener {
-        val intent = Intent(this, MainClaimFinalVotingDisplayUser::class.java)
-        startActivity(intent)
-    }
+        nextBTNRIP.setOnClickListener {
+            val intent = Intent(this, MainClaimFinalVotingDisplayUser::class.java)
+            startActivity(intent)
+        }
 
     }
 

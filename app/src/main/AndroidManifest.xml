@@ -7,51 +7,36 @@
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Admin.ripVotingResultsAdmin">
-
-        </activity>
-        <activity android:name=".Admin.RIPDebateSelectionAdmin" >
-
-
-        </activity>
-        <activity android:name=".Admin.ReasonInPlaysDisplayAdmin">
-
-        </activity>
-        <activity android:name=".Admin.MainClaimIntialVotingAdmin" />
-        <activity android:name=".Admin.MCAdmin" >
-
-
-        </activity>
-        <activity android:name=".Admin.AdminActivity">
-
-        </activity>
-        <activity android:name=".User.finalResultsDisplay" >
-
-        </activity>
-        <activity android:name=".User.MainClaimFinalVotingDisplayUser" />
-        <activity android:name=".User.ReasonInPlayUserVotingDisplay" />
-        <activity android:name=".User.ReasonInPlayDisplay_User" >
-
-        </activity>
-        <activity android:name=".User.ReasonInPlay_User" />
-        <activity android:name=".User.MainClaimActivity" />
-        <activity android:name=".User.GameidActivity" />
-        <activity android:name=".User.SignupActivity" />
-        <activity android:name=".User.MainActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Admin.AdminMainClaimFinalVotingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Admin.ripVotingResultsAdmin"></activity>
+        <activity android:name=".Admin.RIPDebateSelectionAdmin"></activity>
+        <activity android:name=".Admin.ReasonInPlaysDisplayAdmin"></activity>
+        <activity android:name=".Admin.MainClaimIntialVotingAdmin" />
+        <activity android:name=".Admin.MCAdmin"></activity>
+        <activity android:name=".Admin.AdminActivity"></activity>
+        <activity android:name=".User.finalResultsDisplay"></activity>
+        <activity android:name=".User.MainClaimFinalVotingDisplayUser" />
+        <activity android:name=".User.ReasonInPlayUserVotingDisplay" />
+        <activity android:name=".User.ReasonInPlayDisplay_User"></activity>
+        <activity android:name=".User.ReasonInPlay_User" />
+        <activity android:name=".User.MainClaimActivity" />
+        <activity android:name=".User.GameidActivity" />
+        <activity android:name=".User.SignupActivity" />
+        <activity android:name=".User.MainActivity">
 
-
+        </activity>
     </application>
 
 </manifest>

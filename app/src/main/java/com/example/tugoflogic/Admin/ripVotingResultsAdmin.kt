@@ -1,5 +1,6 @@
 package com.example.tugoflogic.Admin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -28,7 +29,8 @@ class ripVotingResultsAdmin : AppCompatActivity() {
         ripService.listLiveData.observe(this, Observer {
             // listen and render vote results
             println(it)
-            var ripList = it.filter { x -> x.game_id == gameID.toInt() && x.status.equals(ERipStatus.ACCEPTED) };
+            var ripList =
+                it.filter { x -> x.game_id == gameID.toInt() && x.status.equals(ERipStatus.ACCEPTED) };
             println(ripList.size);
             println(voteList.size);
             for (v: Vote in voteList) {
@@ -75,6 +77,11 @@ class ripVotingResultsAdmin : AppCompatActivity() {
         })
 
         voteService.findAll()
+
+        nextBtns.setOnClickListener {
+            val intent = Intent(this, AdminMainClaimFinalVotingActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
