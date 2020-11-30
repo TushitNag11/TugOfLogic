@@ -78,6 +78,10 @@ class MainClaimActivity : AppCompatActivity() {
 
                     mainclaimId = id
 
+                    val editor = sharedPref.edit()
+                    editor.putInt("MAINCLAIM_ID", mainclaimId.toInt())
+                    editor.apply()
+
                     mainClaimService.findAll()
                 }
 
