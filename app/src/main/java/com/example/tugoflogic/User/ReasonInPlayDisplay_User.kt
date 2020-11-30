@@ -97,7 +97,7 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID,userID, gameID, EVoteType.RIP.value, voteFlag, ripId.toInt())
+            voteService.create(voteID,gameID, userID, EVoteType.RIP.value, voteFlag, ripId.toInt())
 
 
         })
