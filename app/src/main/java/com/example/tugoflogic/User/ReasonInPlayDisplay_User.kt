@@ -83,13 +83,20 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
         var voteService = VoteService(this)
 
-        voteSubmitBtn.setOnClickListener {
-
+        val nextBtn = findViewById<Button>(R.id.next)
+        nextBtn.setOnClickListener {
 
             voteService.findAll()
-
+            val intent = Intent(this, ReasonInPlayUserVotingDisplay::class.java)
+            startActivity(intent)
 
         }
+
+
+
+
+
+
 
         voteService.listLiveData.observe(this, Observer {
 
@@ -106,12 +113,6 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
         })
 
 
-        val nextBtn = findViewById<Button>(R.id.next)
-        nextBtn.setOnClickListener {
-
-            val intent = Intent(this, ReasonInPlayUserVotingDisplay::class.java)
-            startActivity(intent)
-        }
 
     }
 
