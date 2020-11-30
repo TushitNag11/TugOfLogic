@@ -19,11 +19,7 @@
 
         </activity>
         <activity android:name=".Admin.ReasonInPlaysDisplayAdmin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Admin.MainClaimIntialVotingAdmin" />
         <activity android:name=".Admin.MCAdmin" >
