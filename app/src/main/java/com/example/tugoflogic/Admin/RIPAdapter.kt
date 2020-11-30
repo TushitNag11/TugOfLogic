@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.ripselection_admin.view.*
 
 class RIPAdapter(
     val context: Context,
-    val rips: List<Rip>?,
+    var rips: List<Rip>?,
     val service: RipService
 ) :
     RecyclerView.Adapter<RIPAdapter.VoteHolder>() {
@@ -27,6 +27,11 @@ class RIPAdapter(
         val inflatedView = parent.inflate(R.layout.ripselection_admin, false)
         return VoteHolder(inflatedView)
 
+    }
+
+    fun update(modelList:List<Rip>){
+        this.rips = modelList
+        this.notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = rips!!.size ?: 0

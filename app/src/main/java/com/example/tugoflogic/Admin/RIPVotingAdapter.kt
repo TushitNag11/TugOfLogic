@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.ripvotingviewadmin.view.*
 
 class RIPVotingAdapter(
     val context: Context,
-    val rips: List<Rip>?,
+    var rips: List<Rip>?,
     val service: RipService,
     val ws: SocketService
 ) :
@@ -42,6 +42,11 @@ class RIPVotingAdapter(
 
     }
 
+    fun update(modelList: List<Rip>) {
+        this.rips = modelList
+        this.notifyDataSetChanged()
+    }
+
     class VoteHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
         private var view: View = v
         private var rip: Rip? = null
@@ -56,12 +61,16 @@ class RIPVotingAdapter(
             Log.d("RecyclerView", rip?._id.toString())
         }
 
+
         fun bindFlag(rip: Rip?, context: Context, service: RipService, ws: SocketService) {
             Log.i("RecyclerAdapter", "bindFlag")
             this.rip = rip
             var tv = view.ripTxt as TextView;
             tv?.setText(this.rip?.statement);
             view.studentName.setText(this.rip?.user?.username)
+
+            view.tvtVoteResult.setText("Yes: " + this.rip?.yes + "    No: " + this.rip?.no)
+
             view.startDebateBtn.setOnClickListener(View.OnClickListener {
                 ws.sendMessage(ESocket.DEBATE_RIP.value + "|" + this.rip?._id);
             })

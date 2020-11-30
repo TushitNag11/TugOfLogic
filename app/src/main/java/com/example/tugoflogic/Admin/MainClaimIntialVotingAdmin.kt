@@ -56,7 +56,7 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
             var yes = it.split('|')[0];
             var no = it.split('|')[1];
             tvTrueVote.setText("Yes: " + yes)
-            tvFalseVote.setText("No: " + yes)
+            tvFalseVote.setText("No: " + no)
         })
 
         var socketService = SocketService(this)
@@ -91,10 +91,7 @@ class MainClaimIntialVotingAdmin : AppCompatActivity() {
 
 
         next.setOnClickListener(View.OnClickListener {
-//            val editor = sharedPref.edit()
-//            editor.putInt("MAINCLAIM_ID", newID)
-//            editor.apply()
-//            println("MainClaimID=======>" + sharedPref.getInt("MAINCLAIM_ID", 0))
+
             val intent = Intent(this, RIPDebateSelectionAdmin::class.java)
             startActivity(intent)
         })

@@ -7,7 +7,9 @@ public class Rip(
     var user_id: Int,
     var statement: String,
     var status: ERipStatus,
-    var user: User? = null
+    var user: User? = null,
+    var yes: Int? = 0,
+    var no: Int? = 0
 ) {
     fun toJSON(): String {
         return "{\"_id\": \"${_id}\", \"game_id\":${game_id}, \"user_id\": ${user_id}, \"statement\": \"${
