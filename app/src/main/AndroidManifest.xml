@@ -15,11 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Admin.ripVotingResultsAdmin"></activity>
         <activity android:name=".Admin.RIPDebateSelectionAdmin" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".Admin.ReasonInPlaysDisplayAdmin">
@@ -38,7 +34,13 @@
         </activity>
         <activity android:name=".User.MainClaimFinalVotingDisplayUser" />
         <activity android:name=".User.ReasonInPlayUserVotingDisplay" />
-        <activity android:name=".User.ReasonInPlayDisplay_User" />
+        <activity android:name=".User.ReasonInPlayDisplay_User" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".User.ReasonInPlay_User" />
         <activity android:name=".User.MainClaimActivity" />
         <activity android:name=".User.GameidActivity" />

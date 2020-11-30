@@ -29,7 +29,7 @@ class SocketService(context: Context) {
         }
 
         mSocket.on(Socket.EVENT_CONNECT, Emitter.Listener {
-            this.message.postValue("connected to " + Helper.GetUrl(this.context) + " " + mSocket.connected());
+            println("connected to " + Helper.GetUrl(this.context) + " " + mSocket.connected());
         });
 
         mSocket.on("notifications", Emitter.Listener {

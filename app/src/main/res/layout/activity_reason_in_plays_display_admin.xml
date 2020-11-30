@@ -25,15 +25,15 @@
             android:layout_marginRight="40dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="@string/RIP"
+            android:text="Reason In Play Vote"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="36sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reasoninplaysAdmin"
+            android:id="@+id/rvRip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="40dp"
