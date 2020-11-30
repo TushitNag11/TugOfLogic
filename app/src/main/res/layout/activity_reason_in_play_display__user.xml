@@ -39,7 +39,7 @@
             android:layout_marginRight="40dp"
             android:fontFamily="@font/montserrat"
             android:justificationMode="inter_word"
-            android:text="Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu es massa vestibulum malesuada, integer vivamus elit eu mauris eus, cum eros quis aliquam wisi. Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi mattis pariatur aliquam pharetra eget."
+            android:text="Reason in play is loading"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
@@ -66,7 +66,7 @@
                 android:textStyle="bold" />
 
             <RadioButton
-                android:id="@+id/falseRadioBtnRIP"
+                android:id="@+id/falseRadioBtn"
                 style="@android:style/Widget.CompoundButton.RadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,28 +87,38 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="60dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <Button
-                android:id="@+id/refresh"
-                android:layout_width="wrap_content"
+                android:id="@+id/submitRIPVote"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
-                android:layout_marginRight="60dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="40dp"
                 android:layout_weight="1"
                 android:background="@color/backgroundColor"
-                android:text="@string/refresh"
+                android:text="@string/submit"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/next"
-                android:layout_width="wrap_content"
+                android:id="@+id/nextBTNRIP"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="40dp"
                 android:layout_weight="1"
                 android:background="@color/backgroundColor"
                 android:text="@string/next"

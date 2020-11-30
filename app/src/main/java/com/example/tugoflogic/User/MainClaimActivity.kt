@@ -123,8 +123,6 @@ class MainClaimActivity : AppCompatActivity() {
 
 
             voteService.findAll()
-            val intent = Intent(this, ReasonInPlay_User::class.java)
-            startActivity(intent)
 
 
         }
@@ -133,7 +131,14 @@ class MainClaimActivity : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID, gameID,userID ,EVoteType.MCI.value, voteFlag, mainclaimId.toInt())
+            voteService.create(
+                voteID,
+                gameID,
+                userID,
+                EVoteType.MCI.value,
+                voteFlag,
+                mainclaimId.toInt()
+            )
 
 
         })
@@ -144,6 +149,10 @@ class MainClaimActivity : AppCompatActivity() {
         })
 
 
+        nextBtnMC.setOnClickListener {
+            val intent = Intent(this, ReasonInPlay_User::class.java)
+            startActivity(intent)
+        }
     }
 
 }

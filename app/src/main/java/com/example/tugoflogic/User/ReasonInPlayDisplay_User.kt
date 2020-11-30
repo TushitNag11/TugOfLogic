@@ -83,8 +83,8 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
         var voteService = VoteService(this)
 
-        val nextBtn = findViewById<Button>(R.id.next)
-        nextBtn.setOnClickListener {
+
+        submitRIPVote.setOnClickListener {
 
             voteService.findAll()
 
@@ -106,11 +106,13 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
             socketService.sendMessage(ESocket.VOTE_RIP_COMING.value + "|" + EVoteType.RIP.value)
 
-            val intent = Intent(this, ReasonInPlayUserVotingDisplay::class.java)
-            startActivity(intent)
+
         })
 
-
+    nextBTNRIP.setOnClickListener {
+        val intent = Intent(this, MainClaimFinalVotingDisplayUser::class.java)
+        startActivity(intent)
+    }
 
     }
 
