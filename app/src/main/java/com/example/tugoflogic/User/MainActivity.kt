@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, SignupActivity::class.java)
 //            startActivity(intent)
 //        }
+
+        this.getSharedPreferences("com.example.tugoflogic.Admin", 0).edit().clear().commit()
+        this.getSharedPreferences("com.example.tugoflogic.User", 0).edit().clear().commit()
+
         val ADMIN = "admin";
         val loginButton = findViewById<Button>(R.id.loginBtn)
         loginButton.setOnClickListener {
