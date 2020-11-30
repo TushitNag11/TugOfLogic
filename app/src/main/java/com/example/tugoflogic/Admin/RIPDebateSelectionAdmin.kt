@@ -29,7 +29,7 @@ class RIPDebateSelectionAdmin : AppCompatActivity() {
 
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.Admin", 0)
-        val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
+        val gameID = sharedPref.getInt("GAME_ID", 0).toString()
 
         reasoninplaysDebateAdmin.layoutManager =
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -37,7 +37,7 @@ class RIPDebateSelectionAdmin : AppCompatActivity() {
         reasoninplaysDebateAdmin.adapter = adapterForRecycler
 
         ripService.listLiveData.observe(this, Observer {
-            rips = it.filter { x -> x.game_id == gameID };
+            rips = it.filter { x -> x.game_id == gameID.toInt()};
             println(rips)
             for (r in rips) {
                 r.user = users.find { x -> x._id == r.user_id }
@@ -50,6 +50,7 @@ class RIPDebateSelectionAdmin : AppCompatActivity() {
 
         userService.listLiveData.observe(this, Observer {
             users = it;
+            Thread.sleep(500)
             ripService.findAll()
         })
 
@@ -67,6 +68,7 @@ class RIPDebateSelectionAdmin : AppCompatActivity() {
                 var message = it.split('|')[0];
 //                var id = it.split('|')[1]
                 if (message.equals(ESocket.RIP_COMING.value)) {
+                    Thread.sleep(500)
                     ripService.findAll()
                 }
             }

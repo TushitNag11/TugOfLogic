@@ -33,7 +33,7 @@ class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
 
         val sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.Admin", 0)
-        val gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
+        val gameID = sharedPref.getInt("GAME_ID", 0).toString()
 
         rvRip.layoutManager =
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -41,7 +41,7 @@ class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
         rvRip.adapter = adapterForRecycler
 
         ripService.listLiveData.observe(this, Observer {
-            rips = it.filter { x -> x.game_id == gameID };
+            rips = it.filter  { x -> x.game_id == gameID.toInt() && x.status.equals(ERipStatus.ACCEPTED) };
             for (r in rips) {
                 r.user = users.find { x -> x._id == r.user_id }
                 r.yes = votes.filter { x ->
@@ -57,6 +57,7 @@ class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
         var voteService = VoteService(this);
         voteService.listLiveData.observe(this, Observer {
             votes = it.filter { x -> x.vote_type_id == EVoteType.RIP.value };
+            Thread.sleep(500)
             ripService.findAll()
         })
 
@@ -64,6 +65,7 @@ class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
 
         userService.listLiveData.observe(this, Observer {
             users = it;
+            Thread.sleep(500)
             voteService.findAll()
         })
 
@@ -75,14 +77,15 @@ class ReasonInPlaysDisplayAdmin : AppCompatActivity() {
             var message = it.split('|')[0];
 //                var id = it.split('|')[1]
             if (message.equals(ESocket.VOTE_RIP_COMING.value)) {
-
+                Thread.sleep(500)
+                voteService.findAll()
             }
         })
 
-//        btnNext.setOnClickListener(View.OnClickListener {
-//            val intent = Intent(this, ReasonInPlaysDisplayAdmin::class.java)
-//            startActivity(intent)
-//        })
+        mcSubmitBtn3.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, ripVotingResultsAdmin::class.java)
+            startActivity(intent)
+        })
     }
 
 
