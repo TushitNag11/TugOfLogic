@@ -70,7 +70,7 @@ class ripVotingResultsAdmin : AppCompatActivity() {
                 voteList =
                     it.filter { x -> x.game_id == gameID.toInt() && x.vote_type_id == EVoteType.RIP.value };
                 println(voteList.size)
-
+                Thread.sleep(500)
                 ripService.findAll();
             }
 

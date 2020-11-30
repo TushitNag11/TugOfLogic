@@ -74,7 +74,7 @@ class AdminMainClaimFinalVotingActivity : AppCompatActivity() {
                 var message = it.split('|')[0];
 //                    var id = it.split('|')[1];
 
-                if (ESocket.NEW_VOTE_MAINCLAIM1_COMING.value.equals(message)) {
+                if (ESocket.NEW_VOTE_MAINCLAIM2_COMING.value.equals(message)) {
                     voteService.getVote(
                         sharedPref.getInt("GAME_ID", 0).toString(),
                         EVoteType.MCF.value.toString()
@@ -84,7 +84,7 @@ class AdminMainClaimFinalVotingActivity : AppCompatActivity() {
         })
 
         startVotingBtn.setOnClickListener {
-            socketService.sendMessage(ESocket.VOTE_MAINCLAIM1.value + "|" + EVoteType.MCF.value)
+            socketService.sendMessage(ESocket.VOTE_MAINCLAIM2.value + "|" + EVoteType.MCF.value)
 
         }
 
