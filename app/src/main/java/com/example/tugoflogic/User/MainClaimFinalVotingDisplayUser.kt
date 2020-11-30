@@ -1,5 +1,6 @@
 package com.example.tugoflogic.User
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -109,7 +110,7 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
 
         var voteService = VoteService(this)
 
-        voteSubmitBtn.setOnClickListener {
+        submitVote.setOnClickListener {
 
 
             voteService.findAll()
@@ -131,6 +132,13 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
             socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM2_COMING.value + "|" + EVoteType.MCF.value)
         })
 
+
+
+        submitVote2.setOnClickListener {
+
+            val intent = Intent(this, finalResultsDisplay::class.java)
+            startActivity(intent)
+        }
 
     }
 }

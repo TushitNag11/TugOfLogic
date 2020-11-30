@@ -93,6 +93,22 @@
             android:layout_marginBottom="60dp"
             android:layout_weight="1"
             android:background="@color/backgroundColor"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/submitVote2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginBottom="60dp"
+            android:layout_weight="1"
+            android:background="@color/backgroundColor"
             android:text="@string/next"
             android:textColor="@color/white"
             android:textStyle="bold" />
