@@ -16,6 +16,7 @@ import com.example.tugoflogic.models.ESocket
 import com.example.tugoflogic.models.EVoteType
 import com.example.tugoflogic.models.Vote
 import kotlinx.android.synthetic.main.activity_main_claim.*
+import kotlinx.android.synthetic.main.activity_main_claim_final_voting_user.*
 import kotlinx.android.synthetic.main.activity_main_claim_intial_voting_admin.*
 
 class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
