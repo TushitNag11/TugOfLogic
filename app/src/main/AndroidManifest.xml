@@ -46,7 +46,11 @@
         <activity android:name=".User.GameidActivity" />
         <activity android:name=".User.SignupActivity" />
         <activity android:name=".User.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 

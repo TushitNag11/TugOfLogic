@@ -13,9 +13,9 @@ public class Vote(
 
     companion object {
         fun toNewObject(
-            id: String, game_id: Int, vote_type_id: Int,
+            id: String, game_id: Int, user_id: Int, vote_type_id: Int,
             vote_flag: Int, statement_id: Int): String {
-            return "{\"_id\": \"${id}\", \"game_id\":${game_id}, \"user_id\":1, \"vote_type_id\": ${vote_type_id}, \"statement_id\": ${statement_id},\"vote_flag\":${vote_flag}}"
+            return "{\"_id\": \"${id}\", \"game_id\":${game_id}, \"user_id\":${user_id}, \"vote_type_id\": ${vote_type_id}, \"statement_id\": ${statement_id},\"vote_flag\":${vote_flag}}"
         }
     }
 }

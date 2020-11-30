@@ -67,10 +67,10 @@ class VoteService(context: Context) {
     }
 
     @Throws(IOException::class)
-    fun create(id: String, gameid: Int, voteTypeId: Int, voteFlag: Int, statementId: Int ) {
+    fun create(id: String, gameid: Int,user_id: Int, voteTypeId: Int, voteFlag: Int, statementId: Int ) {
         Thread {
             println("============= new VOTE")
-            val json = Vote.toNewObject(id,gameid, voteTypeId, voteFlag, statementId );
+            val json = Vote.toNewObject(id,gameid,user_id, voteTypeId, voteFlag, statementId );
 
             println(json)
             val body: RequestBody = RequestBody.create(

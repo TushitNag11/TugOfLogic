@@ -29,14 +29,14 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
         var socketService = SocketService(this);
         var ripService = RipService(this);
         var ripId = "0";
-        var vote = Vote
         var voteFlag = 0
         var voteID = ""
         var sharedPref: SharedPreferences =
             this.getSharedPreferences("com.example.tugoflogic.User", 0)
         var gameID = sharedPref.getInt("GAME_ID", 0).toString().toInt()
+        var userID = sharedPref.getInt("USER_ID", 0).toString().toInt()
 
-        var mainclaimId = sharedPref.getInt("MAINCLAIM_ID", 0).toString().toInt()
+
         radioGroupRIP.visibility = View.INVISIBLE
 
         ripService.listLiveData.observe(this, Observer {
@@ -102,14 +102,14 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
             voteID = (it.size + 1).toString()
 
-            voteService.create(voteID, gameID, EVoteType.RIP.value, voteFlag, mainclaimId.toInt())
+            voteService.create(voteID,userID, gameID, EVoteType.RIP.value, voteFlag, ripId.toInt())
 
 
         })
 
         voteService.newVote.observe(this, Observer {
 
-            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value + "|" + EVoteType.MCI.value)
+            socketService.sendMessage(ESocket.VOTE_RIP_COMING.value + "|" + EVoteType.RIP.value)
         })
 
 
