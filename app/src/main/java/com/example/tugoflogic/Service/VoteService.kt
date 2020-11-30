@@ -78,7 +78,7 @@ class VoteService(context: Context) {
             )
 
             val request: Request = Request.Builder()
-                .url(Helper.GetUrl(this.context) + "vote")
+                .url(Helper.GetUrl(this.context) + "votes")
                 .post(body)
                 .build()
 

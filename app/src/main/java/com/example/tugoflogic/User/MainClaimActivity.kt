@@ -78,6 +78,10 @@ class MainClaimActivity : AppCompatActivity() {
 
                     mainclaimId = id
 
+                    val editor = sharedPref.edit()
+                    editor.putInt("MAINCLAIM_ID", mainclaimId.toInt())
+                    editor.apply()
+
                     mainClaimService.findAll()
                 }
 
@@ -123,12 +127,7 @@ class MainClaimActivity : AppCompatActivity() {
         voteSubmitBtn.setOnClickListener {
 
 
-
-
-
-
             voteService.findAll()
-
 
 
         }
@@ -142,11 +141,10 @@ class MainClaimActivity : AppCompatActivity() {
 
         })
 
-            voteService.newVote.observe(this, Observer {
+        voteService.newVote.observe(this, Observer {
 
-                socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value+ "|" + EVoteType.MCI.value)
-            })
-
+            socketService.sendMessage(ESocket.NEW_VOTE_MAINCLAIM1_COMING.value + "|" + EVoteType.MCI.value)
+        })
 
 
     }
