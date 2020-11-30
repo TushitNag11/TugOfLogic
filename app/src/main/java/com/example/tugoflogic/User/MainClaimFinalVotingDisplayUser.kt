@@ -43,16 +43,16 @@ class MainClaimFinalVotingDisplayUser : AppCompatActivity() {
         submitVote.visibility = View.INVISIBLE
 
 
-            mainClaimService.findAll()
-
         mainClaimService.listLiveData.observe(this, Observer { ms ->
             ms?.let {
-                var found = it.find { x -> x._id.equals(mainclaimId) }
+                var found = it.find { x -> x._id.equals(mainclaimId.toString()) }
                 if (found != null) {
                     tvMCDisplay.setText(found.statement.toString())
                 }
             }
         })
+
+        mainClaimService.findAll()
         // ws listening
         var socketService = SocketService(this)
         socketService.message.observe(this, Observer { ms ->
