@@ -87,14 +87,9 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
         nextBtn.setOnClickListener {
 
             voteService.findAll()
-            val intent = Intent(this, ReasonInPlayUserVotingDisplay::class.java)
-            startActivity(intent)
+
 
         }
-
-
-
-
 
 
 
@@ -110,6 +105,9 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
         voteService.newVote.observe(this, Observer {
 
             socketService.sendMessage(ESocket.VOTE_RIP_COMING.value + "|" + EVoteType.RIP.value)
+
+            val intent = Intent(this, ReasonInPlayUserVotingDisplay::class.java)
+            startActivity(intent)
         })
 
 
