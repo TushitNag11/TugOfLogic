@@ -25,11 +25,7 @@
         <activity android:name=".User.finalResultsDisplay"> </activity>
         <activity android:name=".User.MainClaimFinalVotingDisplayUser" />
         <activity android:name=".User.ReasonInPlayUserVotingDisplay" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".User.ReasonInPlayDisplay_User"></activity>
         <activity android:name=".User.ReasonInPlay_User" />
@@ -37,7 +33,11 @@
         <activity android:name=".User.GameidActivity" />
         <activity android:name=".User.SignupActivity" />
         <activity android:name=".User.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
