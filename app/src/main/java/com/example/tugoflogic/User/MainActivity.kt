@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(
                                 applicationContext,
                                 "Username or password is wrong",
-                                Toast.LENGTH_SHORT
+                                Toast.LENGTH_LONG
                             ).show()
                         }
 
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(
                     applicationContext,
                     "Username and password are required",
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
             }
 

@@ -38,7 +38,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:fontFamily="@font/montserrat"
-            android:justificationMode="inter_word"
             android:text="Main Claim is loading"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@android:color/black"

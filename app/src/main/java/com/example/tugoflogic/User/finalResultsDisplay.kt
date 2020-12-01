@@ -49,14 +49,14 @@ class finalResultsDisplay : AppCompatActivity() {
 
 
         val entries1 = ArrayList<BarEntry>()
-        entries1.add(BarEntry(1f, yes))
+        entries1.add(BarEntry(3f, yes))
         val entries2 = ArrayList<BarEntry>()
-        entries2.add(BarEntry(2f, no))
+        entries2.add(BarEntry(4f, no))
 
         val barDataSet1 = BarDataSet(entries1, "Yes")
-        barDataSet1.color = ColorTemplate.COLORFUL_COLORS.get(0);
+        barDataSet1.color = ColorTemplate.COLORFUL_COLORS.get(3);
         val barDataSet2 = BarDataSet(entries2, "No")
-        barDataSet2.color = ColorTemplate.COLORFUL_COLORS.get(1);
+        barDataSet2.color = ColorTemplate.COLORFUL_COLORS.get(0);
 
         val data = BarData(barDataSet1, barDataSet2)
         barChart.data = data // set the data and list of lables into chart

@@ -38,6 +38,7 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
 
 
         radioGroupRIP.visibility = View.INVISIBLE
+        submitRIPVote.visibility = View.INVISIBLE
 
         ripService.listLiveData.observe(this, Observer {
             var rip = it.find { x -> x._id.equals(ripId) };
@@ -57,6 +58,7 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
                 ESocket.VOTE_RIP.value -> {
                     // TODO start vote
                     radioGroupRIP.visibility = View.VISIBLE
+                    submitRIPVote.visibility = View.VISIBLE
 
 
                 }

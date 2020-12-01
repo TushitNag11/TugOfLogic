@@ -55,7 +55,6 @@
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/montserrat"
             android:hint="Loading"
-            android:justificationMode="inter_word"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@android:color/black"
             android:textSize="18sp" />

@@ -71,6 +71,11 @@ class ReasonInPlay_User : AppCompatActivity() {
 
         ripService.newRIP.observe(this, Observer {
 
+            Toast.makeText(
+                this,
+                it,
+                Toast.LENGTH_LONG
+            ).show()
             socketService.sendMessage(ESocket.RIP_COMING.value)
         })
 

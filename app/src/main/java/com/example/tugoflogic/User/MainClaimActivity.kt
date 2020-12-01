@@ -2,14 +2,13 @@ package com.example.tugoflogic.User
 
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.tugoflogic.R
 import com.example.tugoflogic.Service.MainClaimService
@@ -61,7 +60,7 @@ class MainClaimActivity : AppCompatActivity() {
                 Toast.makeText(
                     this,
                     it,
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
 
                 println(it)
@@ -123,11 +122,15 @@ class MainClaimActivity : AppCompatActivity() {
 
 
             voteService.findAll()
+            for (i in 0 until radioGroup.childCount) {
+                radioGroup.getChildAt(i).setEnabled(false)
+            }
 
 
         }
 
         voteService.listLiveData.observe(this, Observer {
+
 
             voteID = (it.size + 1).toString()
 
