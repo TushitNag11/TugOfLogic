@@ -89,6 +89,7 @@ class ReasonInPlayDisplay_User : AppCompatActivity() {
         submitRIPVote.setOnClickListener {
 
             voteService.findAll()
+            radioGroup.clearCheck()
 
 
         }
